@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ActivatedRoute, Router } from '@angular/router';
+// import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
@@ -37,8 +37,8 @@ import { FindrmComponent } from './findrm/findrm.component';
   imports: [
     BrowserModule,
     FormsModule,
-    ActivatedRoute,
-    Router,
+    // ActivatedRoute,
+    // Router,
     AppRoutingModule,
     RouterModule,
     MatButtonModule,
