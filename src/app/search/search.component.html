@@ -1,0 +1,35 @@
+<p>*** Search People page ***</p>
+<div>
+    <form action="">
+        <a>Department:</a>
+        <input type="text" [(ngModel)]="department" name="department">
+        <br>
+        <a>First Name:</a>
+        <input type="text" [(ngModel)]="firstName" name="firstname">
+        <br>
+        <a>Last Name:</a>
+        <input type="text" [(ngModel)]="lastName" name="lastname">
+        <br>
+    </form>
+<br>
+    <button>Search </button>
+</div>
+
+
+<div>
+
+<div *ngIf="!found">
+    <p>People search result(not found):</p>
+</div>
+
+
+<div *ngIf="!found">
+    <p>People search result(found):</p>
+    <P>5. People searching
+    A student can use the website to search for a particular student or faculty. The search can be based on department,
+    first name, last name. If a record is found, you should display name, department, phone number, and email of the found
+    student/faculty. If the user can only provide the department name or either just first name or last name, then multiple
+    results may be displayed.
+</P>
+</div>
+</div>

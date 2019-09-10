@@ -1,0 +1,37 @@
+<p>*** textbooksearch page ***</p>
+
+<div>
+    <form action="">
+        <a>Title:</a>
+        <input type="text" [(ngModel)]="title" name="title">
+        <br>
+        <a>Author:</a>
+        <input type="text" [(ngModel)]="author" name="author">
+        <br>
+        <a>ISBN:</a>
+        <input type="text" [(ngModel)]="ISBN" name="ISBN">
+    </form>
+    <br>
+   <button>Search</button>
+
+<div *ngIf="!found">
+<p>Book search result(not found):</p>
+</div>
+
+
+<div *ngIf="!found">
+    <p>Book search result(found):</p>
+    <button>Buy</button>
+
+    <p>BUY RULES: A student can purchase textbooks online. After finding the textbooks, the student can purchase textbooks online by
+    credit cards. The Student can also see all the purchases he/she has made so far. If the total amount exceeds $200,
+    he/she can get a discount of 10% in the next purchase.
+</p>
+</div>
+
+
+
+
+
+</div>
+
