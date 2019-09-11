@@ -9,10 +9,11 @@
         <input type="text" [(ngModel)]="author" name="author">
         <br>
         <a>ISBN:</a>
-        <input type="text" [(ngModel)]="ISBN" name="ISBN">
+        <input type="text" [(ngModel)]="isbn" name="ISBN">
     </form>
     <br>
-   <button>Search</button>
+   <button (click)="searchBook()">Search</button>
+   <button (click)="saveBook()">create</button>
 
 <div *ngIf="!found">
 <p>Book search result(not found):</p>
@@ -28,10 +29,22 @@
     he/she can get a discount of 10% in the next purchase.
 </p>
 </div>
-
-
-
+<hr>
+<mat-accordion >
+    <mat-expansion-panel *ngFor="let post of textbook">
+        <mat-expansion-panel-header>
+           Title :{{ post.title }}
+        </mat-expansion-panel-header>
+        <p>Isbn: {{ post.isbn }}</p>
+        <p>Author : {{ post.author }}</p>
+        <p>Price :$ {{ post.price }}</p>2
+        <mat-action-row>
+            <button mat-button color="primary">Buy</button>
+        </mat-action-row>
+    </mat-expansion-panel>
+</mat-accordion>
 
 
 </div>
 
+            <button mat-button color="warn">DELETE</button>

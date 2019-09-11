@@ -1,19 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Textbook } from './textbook.model';
+import { TextbookService } from './textbook.service';
 
 @Component({
   selector: 'app-textbooksearch',
   templateUrl: './textbooksearch.component.html',
   styleUrls: ['./textbooksearch.component.scss']
 })
-export class TextbooksearchComponent implements OnInit {
+export class TextbooksearchComponent implements OnInit, OnDestroy {
 
   found: false;
-  textbook: any = {};
-  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
+  textbook: Textbook[] = [];
+  title = '';
+  author = '';
+  isbn = 0;
+  data: Textbook = {
+    isbn: '',
+    title: '',
+    author: '',
+    price: 0,
+  }
+  private postsSub: Subscription;
+  
+  constructor(public postsService: TextbookService) { }
 
   ngOnInit() {
+  
+    // this.postsService.getPosts();
+    this.postsSub = this.postsService.getPostUpdateListener()
+      .subscribe((posts: Textbook[]) => {
+        console.log("client side: ", posts);
+        this.textbook = posts;
+      });
   }
 
+searchBook(){
+  this.postsService.getPosts();
 }
+  
+  ngOnDestroy() {
+    this.postsSub.unsubscribe();
+  }
+  }
+
+
+

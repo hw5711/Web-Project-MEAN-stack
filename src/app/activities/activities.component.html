@@ -6,3 +6,65 @@ period, for example, September 1 2012 to December 31 2012. The website can list 
 period. The student can select the activities that he/she wants to attend. And all the activities chosen by the student
 should be displayed by month.
 </p>
+
+<div>
+    <form (submit)="addPosts(postForm)" #postForm="ngForm">
+        <mat-form-field>
+            <input 
+            matInput
+            type="date"
+            name="date"
+            ngModel>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input 
+            matInput 
+            type="text" 
+            name="content" 
+            ngModel>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input 
+            matInput 
+            type="text" 
+            name="whos" 
+            ngModel>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input 
+            matInput 
+            type="text" 
+            name="ID" 
+            ngModel>
+        </mat-form-field>
+        <br>
+        <button
+        mat-raised-button
+        color="accent"
+        type="submit">
+        Add
+        </button>
+    </form>
+</div>
+<hr>
+
+
+<div>
+    <button (click)="searchActivities()"> Check Calendar</button>
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let act of activities">
+            <mat-expansion-panel-header>
+                Date :{{ act.date }}
+            </mat-expansion-panel-header>
+            <p>content: {{ act.content }}</p>
+            <p>whos : {{ act.whos }}</p>
+            <p>ID :$ {{ act.ID }}</p>2
+            <mat-action-row>
+                <!-- <button mat-button color="primary" (click)="searchActivities()"> Check Calendar</button> -->
+            </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

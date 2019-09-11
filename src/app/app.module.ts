@@ -1,12 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { Router } from '@angular/router';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatRadioModule } from '@angular/material/radio';
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import {
+  MatInputModule,
+  MatCardModule,
+  MatButtonModule,
+  MatToolbarModule,
+  MatExpansionModule,
+  MatCheckboxModule,
+  MatRadioModule,
+} from "@angular/material";
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,15 +42,17 @@ import { FindrmComponent } from './findrm/findrm.component';
   imports: [
     BrowserModule,
     FormsModule,
-    // ActivatedRoute,
-    // Router,
-    AppRoutingModule,
     RouterModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatCardModule,
     MatButtonModule,
-    MatCheckboxModule,
-    MatRadioModule,
+    MatToolbarModule,
+    MatExpansionModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    MatRadioModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

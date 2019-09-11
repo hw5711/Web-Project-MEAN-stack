@@ -23,4 +23,7 @@ export class LoginComponent implements OnInit {
     console.log("register for new user");
   }
 
+  
+
+
 }
