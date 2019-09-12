@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { NgForm } from "@angular/forms";
 import { Activities } from './activities.model';
 import { Subject } from "rxjs";
-import { map } from 'rxjs/operators';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-activities',
@@ -19,7 +19,9 @@ export class ActivitiesComponent implements OnInit {
   ID: "stu0009";
 
   data: any
-  constructor(private http: HttpClient) { }
+
+  constructor(private modal: NgbModal,
+     private http: HttpClient) { }
 
   ngOnInit() {
   }
@@ -29,7 +31,6 @@ export class ActivitiesComponent implements OnInit {
     this.http
       .post<{ message: string, postId: string }>("http://localhost:3000/activities/add", post)
       .subscribe(responseData => {
-        // const id = responseData.postId;
         console.log("activities post successed");
       });
   }
@@ -42,10 +43,7 @@ export class ActivitiesComponent implements OnInit {
     ).subscribe(postData => {
       this.activities = postData.activities;
       console.log("result: ", postData.message);
-      // console.log("result: ", postData);
-      // console.log("result: ", this.activities);
     });
-    
   }
 
 }

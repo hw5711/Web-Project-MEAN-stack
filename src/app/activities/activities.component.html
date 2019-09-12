@@ -50,21 +50,3 @@ should be displayed by month.
     </form>
 </div>
 <hr>
-
-
-<div>
-    <button (click)="searchActivities()"> Check Calendar</button>
-    <mat-accordion>
-        <mat-expansion-panel *ngFor="let act of activities">
-            <mat-expansion-panel-header>
-                Date :{{ act.date }}
-            </mat-expansion-panel-header>
-            <p>content: {{ act.content }}</p>
-            <p>whos : {{ act.whos }}</p>
-            <p>ID :$ {{ act.ID }}</p>2
-            <mat-action-row>
-                <!-- <button mat-button color="primary" (click)="searchActivities()"> Check Calendar</button> -->
-            </mat-action-row>
-        </mat-expansion-panel>
-    </mat-accordion>
-</div>
