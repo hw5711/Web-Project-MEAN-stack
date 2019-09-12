@@ -44,7 +44,7 @@ export class LoginService {
         const authData: LoginData = { email: email, password: password };
         this.http
             .post<{ token: string; expiresIn: number, userId: string }>(
-                "http://localhost:3000/api/user/loginacc",
+                "http://localhost:3000/user/loginacc",
                 authData
             )
             .subscribe(response => {
@@ -60,7 +60,7 @@ export class LoginService {
                     const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
                     console.log(expirationDate);
                     this.saveAuthData(token, expirationDate, this.userId);
-                    this.router.navigate(["/"]);
+                    this.router.navigate(["/loginacc"]);
                 }
             });
     }

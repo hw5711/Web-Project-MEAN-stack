@@ -11,25 +11,24 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { BusComponent } from './bus/bus.component';
 import { FindrmComponent } from './findrm/findrm.component';
 
-
+import { LoginGuard } from "./login/login.guard";
 
 const routes: Routes = [
-  { path: 'search',component: SearchComponent },
-  { path: 'account',component: AccountComponent},
-  { path: 'textbook',component: TextbooksearchComponent},
-  { path: 'election',component: ElectionComponent},
-  { path: 'meal',component: MealComponent},
+  { path: 'search', component: SearchComponent, canActivate: [LoginGuard] },
+  { path: 'account', component: AccountComponent, canActivate: [LoginGuard]},
+  { path: 'textbook', component: TextbooksearchComponent, canActivate: [LoginGuard]},
+  { path: 'election', component: ElectionComponent, canActivate: [LoginGuard]},
+  { path: 'meal', component: MealComponent, canActivate: [LoginGuard]},
   { path: 'activities',component: ActivitiesComponent},
-  { path: 'bus',component: BusComponent},
-  { path: 'roommate',component: FindrmComponent},
+  { path: 'bus', component: BusComponent, canActivate: [LoginGuard]},
+  { path: 'roommate', component: FindrmComponent, canActivate: [LoginGuard]},
   { path: "loginacc", component: LoginaccComponent },
   { path: "register", component: RegisterComponent },
-  // { path: "login", component: LoginComponent },
-  // { path: "signup", component: SignupComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [LoginGuard]
 })
 export class AppRoutingModule { }
