@@ -41,7 +41,6 @@ export class ActivitiesComponent implements OnInit {
         "http://localhost:3000/activities/search"
     ).subscribe(postData => {
       this.activities = postData.activities;
-      // this.data = postData.posts;
       console.log("result: ", postData.message);
       // console.log("result: ", postData);
       // console.log("result: ", this.activities);

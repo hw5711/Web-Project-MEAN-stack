@@ -11,11 +11,14 @@ import {
   MatExpansionModule,
   MatCheckboxModule,
   MatRadioModule,
+  MatProgressSpinnerModule
 } from "@angular/material";
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './login/register/register.component';
+import { LoginaccComponent } from './login/loginacc/loginacc.component';
 import { SearchComponent } from './search/search.component';
 import { AccountComponent } from './account/account.component';
 import { TextbooksearchComponent } from './textbooksearch/textbooksearch.component';
@@ -24,12 +27,16 @@ import { MealComponent } from './meal/meal.component';
 import { ActivitiesComponent } from './activities/activities.component';
 import { BusComponent } from './bus/bus.component';
 import { FindrmComponent } from './findrm/findrm.component';
+import { HeaderComponent } from './header/header.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    RegisterComponent,
+    LoginaccComponent,
     SearchComponent,
     AccountComponent,
     TextbooksearchComponent,
@@ -37,7 +44,8 @@ import { FindrmComponent } from './findrm/findrm.component';
     MealComponent,
     ActivitiesComponent,
     BusComponent,
-    FindrmComponent
+    FindrmComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +58,7 @@ import { FindrmComponent } from './findrm/findrm.component';
     MatButtonModule,
     MatToolbarModule,
     MatExpansionModule,
+    MatProgressSpinnerModule,
     HttpClientModule,
     MatRadioModule,
     MatCheckboxModule

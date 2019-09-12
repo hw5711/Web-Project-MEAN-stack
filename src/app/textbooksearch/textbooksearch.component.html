@@ -1,19 +1,62 @@
 <p>*** textbooksearch page ***</p>
 
 <div>
-    <form action="">
-        <a>Title:</a>
-        <input type="text" [(ngModel)]="title" name="title">
+
+    <P>this area is for storing data(for test)</P>
+    <form (submit)="searchBook(postForm)" #postForm="ngForm">
+        <mat-form-field>
+            <a>ISBM:</a>
+            <input matInput type="text" name="isbn" ngModel></mat-form-field>
         <br>
-        <a>Author:</a>
-        <input type="text" [(ngModel)]="author" name="author">
+        <mat-form-field>
+            <a>Author:</a>
+            <input matInput type="text" name="author" ngModel></mat-form-field>
         <br>
-        <a>ISBN:</a>
-        <input type="text" [(ngModel)]="isbn" name="ISBN">
+        <mat-form-field>
+            <a>Title:</a>
+            <input matInput type="text" name="title" ngModel></mat-form-field>
+        <br>
+        <mat-form-field>
+            <a>Price:</a>
+            <input matInput type="number" name="price" ngModel></mat-form-field>
+        <br>
+        <button mat-raised-button color="accent" type="submit">Search</button>
+        <br>
     </form>
     <br>
-   <button (click)="searchBook()">Search</button>
-   <button (click)="saveBook()">create</button>
+
+
+
+    <hr>
+    <P>this area is for creating data(for test)</P>
+    <form (submit)="saveBook(postForm)" #postForm="ngForm">
+        <mat-form-field>
+        <a>ISBM:</a>
+        <input  matInput type="text"  name="isbn" ngModel></mat-form-field>
+        <br>
+        <mat-form-field>
+        <a>Author:</a>
+        <input matInput type="text"  name="author" ngModel></mat-form-field>
+        <br>
+        <mat-form-field>
+        <a>Title:</a>
+        <input matInput type="text"  name="title" ngModel></mat-form-field>
+        <br>
+        <mat-form-field>
+        <a>Price:</a>
+        <input matInput type="number"  name="price" ngModel></mat-form-field>
+        <br>
+        <button mat-raised-button color="accent" type="submit">create</button>
+    </form>
+    <br>
+
+<div>
+    <ul *ngFor="let book of data">
+        <li>{{ book.title }}</li>
+    </ul>
+</div>
+
+    
 
 <div *ngIf="!found">
 <p>Book search result(not found):</p>
@@ -47,4 +90,4 @@
 
 </div>
 
-            <button mat-button color="warn">DELETE</button>
+ <button mat-button color="warn">DELETE</button>

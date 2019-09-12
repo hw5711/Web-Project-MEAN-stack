@@ -3,9 +3,12 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 mongoose.Promise = require('bluebird');
 
-const Textbook = require("./models/textbook");
-const Activities = require("./models/activities");
+// const Textbook = require("./models/textbook");
+// const Activities = require("./models/activities");
 
+const userRoutes = require("./routes/user");
+const activitiesRoutes = require("./routes/activities.server.routes");
+const textbookRoutes = require("./routes/textbook.server.routes");
 
 const app = express();
 
@@ -24,6 +27,7 @@ const app = express();
 /*** IP adress(may changed): 70.114.166.167 */
 
 mongoose
+    // .set('useCreateIndex', true)
     .connect(
         "mongodb+srv://huanwu:ABCD1234@webproject-qhq6u.mongodb.net/test?retryWrites=true&w=majority"
         , { useUnifiedTopology: true, useNewUrlParser: true  })
@@ -51,60 +55,8 @@ app.use((req, res, next) => {
     next();
 });
 
-/*** Activities page */
-
-//Student add activity into calendar
-app.post("/activities/add", (req, res, next) => {
-    const post = new Activities({
-        date: req.body.date,
-        content: req.body.content,
-        whos: req.body.whos,
-        ID: req.body.ID
-    });
-
-    // console.log(post);
-    post.save();
-    // post.save().then(createdPost => {
-        res.status(201).json({
-            message: "Post added successfully",
-            // postId: createdPost._id
-        });
-    // });
-});
-
-//get all activities from mongodb
-app.get("/activities/search", (req, res, next) => {
-    Activities.find().then(documents => {
-        console.log("find data2: ", documents);
-        res.status(200).json({
-            message: "Posts fetched successfully!",
-            activities: documents
-        });
-    });
-});
-
-/*** Textbook page */
-
-app.get("/textbook/search", (req, res, next) => {
-    const posts = Textbook[
-        {
-            isbn: "12421l",
-            title: "book1 :First server-side post",
-            author: "jim",
-            price: 14
-        },
-        {
-            isbn: "132",
-            title: "Second book: server-side post",
-            author: "lily",
-            price: 20
-        }
-    ];
-    res.status(200).json({
-        message: "Posts fetched successfully!",
-        posts: posts
-    });
-    console.log("server side1");
-});
+app.use("/user", userRoutes);
+app.use("/activities", activitiesRoutes);
+app.use("/textbook", textbookRoutes);
 
 module.exports = app;
