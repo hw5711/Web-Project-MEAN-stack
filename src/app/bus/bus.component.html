@@ -1,23 +1,34 @@
-<p>*** bus tickets purchase ***</p>
-
 <p>A student can buy bus tickets online by credit card. There are three zones with $2, $4, and$6, respectively. The student
 can choose multiple zones and buy multiple tickets. The student can also buy bus cards which cost $40 each.
 </p>
+<div>
 
-<mat-checkbox>$2 ticket for Zone1</mat-checkbox>
-<a>  Quantity: </a>
-<input type="number">
+
+<mat-checkbox [(ngModel)]="two">$2 ticket for Zone1</mat-checkbox>
+<span style="margin-left:30px"></span>
+<input type="number" placeholder="0" [(ngModel)]="twoQ">
 <br>
-<!-- <input type="number"> -->
-<mat-checkbox>$4 ticket for Zone1</mat-checkbox>
-<a> Quantity: </a>
-<input type="number">
+<mat-checkbox [(ngModel)]="four">$4 ticket for Zone2</mat-checkbox>
+<span style="margin-left:30px"></span>
+<input type="number" placeholder="0" [(ngModel)]="fourQ">
 <br>
-<mat-checkbox>$6 ticket for Zone1</mat-checkbox>
-<a> Quantity: </a>
-<input type="number">
+<mat-checkbox [(ngModel)]="six">$6 ticket for Zone3</mat-checkbox>
+<span style="margin-left:30px"></span>
+<input type="number" placeholder="0" [(ngModel)]="sixQ">
 <br>
-<mat-checkbox>$40 bus card </mat-checkbox>
-<a> Quantity: </a>
-<input type="number">
-<br>
+<mat-checkbox [(ngModel)]="forty">$40 bus card </mat-checkbox>
+<span style="margin-left:65px"></span>
+<input type="number" placeholder="0" [(ngModel)]="fortyQ">
+</div>
+
+<div style="margin-left:65px">
+
+<ul>
+    <li>
+        <p>Subtotal: </p>
+        {{subtotal}}
+
+    </li>
+</ul>
+
+</div>

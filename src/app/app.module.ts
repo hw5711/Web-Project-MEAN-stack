@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { MatRippleModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import {
   MatInputModule,
   MatCardModule,
@@ -14,8 +15,8 @@ import {
   MatProgressSpinnerModule
 } from "@angular/material";
 
-// import { CalendarModule, DateAdapter } from 'angular-calendar';
-// import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -64,7 +65,10 @@ import { HeaderComponent } from './header/header.component';
     MatProgressSpinnerModule,
     HttpClientModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatRippleModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

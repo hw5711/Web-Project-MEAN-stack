@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusComponent implements OnInit {
 
-  constructor() { }
+  subtotal: 0;
+  two: boolean;
+
+  constructor() { 
+    // subtotal = 
+  }
 
   ngOnInit() {
+
   }
 
 }

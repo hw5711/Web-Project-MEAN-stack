@@ -23,6 +23,7 @@
     "@angular/router": "~8.2.4",
     "@ng-bootstrap/ng-bootstrap": "^5.1.1",
     "angular-calendar": "^0.27.18",
+    "angular-daterangepicker": "^0.2.3-alpha1",
     "angular-material": "^1.1.20",
     "bcrypt": "^3.0.6",
     "bluebird": "^3.5.5",
