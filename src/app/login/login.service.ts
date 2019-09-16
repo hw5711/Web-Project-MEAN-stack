@@ -36,7 +36,33 @@ export class LoginService {
         this.http
             .post("http://localhost:3000/user/register", authData)
             .subscribe(response => {
-                console.log(response);
+                console.log("show detail of response :",response);
+                this.loginAfterRegister(email, password);
+            });
+    }
+
+    loginAfterRegister(email: string, password: string) {
+        const authData: LoginData = { email: email, password: password };
+        this.http
+            .post<{ token: string; expiresIn: number, userId: string }>(
+                "http://localhost:3000/user/loginacc",
+                authData
+            )
+            .subscribe(response => {
+                const token = response.token;
+                this.token = token;
+                if (token) {
+                    const expiresInDuration = response.expiresIn;
+                    this.setAuthTimer(expiresInDuration);
+                    this.isAuthenticated = true;
+                    this.userId = response.userId;
+                    this.authStatusListener.next(true);
+                    const now = new Date();
+                    const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
+                    console.log(expirationDate);
+                    this.saveAuthData(token, expirationDate, this.userId);
+                   this.router.navigate([""]);
+                }
             });
     }
 

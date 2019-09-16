@@ -2,6 +2,7 @@ const express = require("express");
 var mongoose = require('mongoose');
 
 const Activities = require("../models/activities");
+const checkAuth = require("../middleware/check-auth");
 
 const app = express.Router();
 

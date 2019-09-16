@@ -6,9 +6,10 @@ mongoose.Promise = require('bluebird');
 // const Textbook = require("./models/textbook");
 // const Activities = require("./models/activities");
 
-const userRoutes = require("./routes/user");
+const userRoutes = require("./routes/user.server.routes");
 const activitiesRoutes = require("./routes/activities.server.routes");
 const textbookRoutes = require("./routes/textbook.server.routes");
+const accountRoutes = require("./routes/account.server.routes");
 
 const app = express();
 
@@ -58,5 +59,6 @@ app.use((req, res, next) => {
 app.use("/user", userRoutes);
 app.use("/activities", activitiesRoutes);
 app.use("/textbook", textbookRoutes);
+app.use("/account", accountRoutes);
 
 module.exports = app;

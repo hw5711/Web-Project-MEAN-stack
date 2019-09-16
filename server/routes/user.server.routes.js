@@ -3,6 +3,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const User = require("../models/user");
+//when create an account, post a new account with userID
+const Account = require("../models/account");
 
 const router = express.Router();
 
@@ -12,12 +14,33 @@ router.post("/register", (req, res, next) => {
             email: req.body.email,
             password: hash
         });
-        user
-            .save()
+        
+        user.save()
             .then(result => {
+                // console.log("after create an account , server result is :", result._id);
+                const account = new Account({
+                    firstName: "",
+                    lastName: "",
+                    address: "",
+                    city: "",
+                    state: "",
+                    zipcode: "",
+                    email: "", //user can set another email
+                    loginName: req.body.email, //suppose login name is email
+                    password: "",
+                    password2: "",
+                    creator: result._id
+                });
+                account.save()
+                    .then(result => {
+                        console.log("account created with new user");
+                    })
+                    .catch(err => {
+                        console.log("account created faild");
+                    });
                 res.status(201).json({
                     message: "User created!",
-                    result: result
+                    result: result,
                 });
             })
             .catch(err => {
@@ -25,6 +48,7 @@ router.post("/register", (req, res, next) => {
                     error: err
                 });
             });
+        
     });
 });
 

@@ -17,7 +17,6 @@ export class RegisterComponent {
             return;
         }
         this.isLoading = true;
-        // console.log(this.isLoading);
         this.authService.createUser(form.value.email, form.value.password);
     }
 }

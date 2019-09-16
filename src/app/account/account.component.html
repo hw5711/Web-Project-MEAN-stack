@@ -1,41 +1,55 @@
-<p>*** Account page ***</p>
 
-<p>3. Update information
-After a student logs in, he/she can update the above register information.
-</p>
+<form (submit)="SaveUpdate(postForm)" #postForm="ngForm">
+    <mat-form-field>
+        <a>First Name:</a>
+        <input matInput type="text" formControlName="firstName" ngModel>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <a>Last Name:</a>
+        <input matInput type="text" formControlName="lastName" ngModel>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <a>Address:</a>
+        <input matInput type="text" formControlName="address" ngModel>
+    </mat-form-field>
 
-<div>
-  
-    <a>First Name :</a>
-    <input type="text" [(ngModel)]="firstName" name="firstName">
-    <br>
-    <a>Last Name :</a>
-    <input type="text" [(ngModel)]="lastName" name="lastName">
-    <br>
-    <a>Address :</a>
-    <input type="text" [(ngModel)]="address" name="address">
-    <br>
-    <a>City :</a>
-    <input type="text" [(ngModel)]="city" name="city">
-    <a>State :</a>
-    <input type="text" [(ngModel)]="state" name="state">
-    <a>Zip Code :</a>
-    <input type="text" [(ngModel)]="zip" name="zip">
-    <br>
-    <a>Email:</a>
-    <input type="text" [(ngModel)]="email" name="email">
-    <br>
-    <br>
-    <a>Login Name :</a>
-    <input type="text" [(ngModel)]="loginName" name="loginName">
-    <br>
-    <a>Password:</a>
-    <input type="text" [(ngModel)]="regPass" name="regPass">
-    <br>
-    <a>Confirm Password :</a>
-    <input type="text" [(ngModel)]="conRegPass" name="conRegPass">
-    <br>
+    <mat-form-field>
+        <a>City:</a>
+        <input matInput type="text" formControlName="city" ngModel>
+    </mat-form-field>
 
-    <button (click)="register()">Update</button>
-</div>
+    <mat-form-field>
+        <a>State:</a>
+        <input matInput type="text" formControlName="state" ngModel>
+    </mat-form-field>
+
+    <mat-form-field>
+        <a>Zipcode:</a>
+        <input matInput type="text" formControlName="zipcode" ngModel>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <a>email:</a>
+        <input matInput type="text" formControlName="email" ngModel>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <a>PoginName:</a>
+        <input matInput type="text" formControlName="loginName" ngModel>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <a>Password:</a>
+        <input matInput type="text" formControlName="password" ngModel>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <a>Confirm Password:</a>
+        <input matInput type="text" formControlName="cofPassword" ngModel>
+    </mat-form-field>
+    
+    <button mat-raised-button color="accent" type="submit">Update</button>
+</form>
 

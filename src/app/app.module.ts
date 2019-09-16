@@ -16,6 +16,7 @@ import {
 } from "@angular/material";
 
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -69,6 +70,7 @@ import { HeaderComponent } from './header/header.component';
     MatRippleModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
