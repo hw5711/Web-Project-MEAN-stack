@@ -12,6 +12,7 @@ import { BusComponent } from './bus/bus.component';
 import { FindrmComponent } from './findrm/findrm.component';
 
 import { LoginGuard } from "./login/login.guard";
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   { path: 'search', component: SearchComponent, canActivate: [LoginGuard] },
@@ -24,6 +25,8 @@ const routes: Routes = [
   { path: 'roommate', component: FindrmComponent, canActivate: [LoginGuard]},
   { path: "loginacc", component: LoginaccComponent },
   { path: "register", component: RegisterComponent },
+  // { path: "", component: HeaderComponent },
+
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ const app = express.Router();
 //use for updating the account info
 app.put("/:id", checkAuth, (req, res, next) => {
         const account = new Account({
+            _id: req.body.id,
             firstName: req.body.firstName,
             lastName: req.body.title,
             address: req.body.title,
@@ -21,9 +22,9 @@ app.put("/:id", checkAuth, (req, res, next) => {
             password2: req.body.password2,
             creator: req.userData.userId,
         });
-        Post.updateOne(
+        account.updateOne(
             { _id: req.params.id, creator: req.userData.userId },
-            post
+            account
         ).then(result => {
             if (result.nModified > 0) {
                 res.status(200).json({ message: "Account update successful!" });
@@ -35,9 +36,11 @@ app.put("/:id", checkAuth, (req, res, next) => {
 );
 
 app.get("/:id", (req, res, next) => {
-    Account.findById(req.params.id).then(post => {
-        if (post) {
-            res.status(200).json(post);
+    console.log(" server get id # is:", req.params.id);
+    Account.findOne({ creator: req.params.id })
+    .then(account => {
+        if (account) {
+            res.status(200).json(account);
         } else {
             res.status(404).json({ message: "Account not found!" });
         }

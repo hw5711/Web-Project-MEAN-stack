@@ -37,32 +37,7 @@ export class LoginService {
             .post("http://localhost:3000/user/register", authData)
             .subscribe(response => {
                 console.log("show detail of response :",response);
-                this.loginAfterRegister(email, password);
-            });
-    }
-
-    loginAfterRegister(email: string, password: string) {
-        const authData: LoginData = { email: email, password: password };
-        this.http
-            .post<{ token: string; expiresIn: number, userId: string }>(
-                "http://localhost:3000/user/loginacc",
-                authData
-            )
-            .subscribe(response => {
-                const token = response.token;
-                this.token = token;
-                if (token) {
-                    const expiresInDuration = response.expiresIn;
-                    this.setAuthTimer(expiresInDuration);
-                    this.isAuthenticated = true;
-                    this.userId = response.userId;
-                    this.authStatusListener.next(true);
-                    const now = new Date();
-                    const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
-                    console.log(expirationDate);
-                    this.saveAuthData(token, expirationDate, this.userId);
-                   this.router.navigate([""]);
-                }
+                this.router.navigate(["/loginacc"]);
             });
     }
 
@@ -86,7 +61,7 @@ export class LoginService {
                     const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
                     console.log(expirationDate);
                     this.saveAuthData(token, expirationDate, this.userId);
-                    this.router.navigate(["/loginacc"]);
+                    this.router.navigate(["/"]);
                 }
             });
     }
@@ -101,6 +76,7 @@ export class LoginService {
         if (expiresIn > 0) {
             this.token = authInformation.token;
             this.isAuthenticated = true;
+            this.userId = authInformation.userId;
             this.setAuthTimer(expiresIn / 1000);
             this.authStatusListener.next(true);
         }
@@ -110,6 +86,7 @@ export class LoginService {
         this.token = null;
         this.isAuthenticated = false;
         this.authStatusListener.next(false);
+        this.userId = null;
         clearTimeout(this.tokenTimer);
         this.clearAuthData();
         this.router.navigate(["/"]);

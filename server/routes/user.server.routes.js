@@ -29,7 +29,7 @@ router.post("/register", (req, res, next) => {
                     loginName: req.body.email, //suppose login name is email
                     password: "",
                     password2: "",
-                    creator: result._id
+                    creator: req.userData.userId
                 });
                 account.save()
                     .then(result => {
@@ -77,7 +77,8 @@ router.post("/loginacc", (req, res, next) => {
             );
             res.status(200).json({
                 token: token,
-                expiresIn: 3600
+                expiresIn: 3600,
+                userId: fetchedUser._id
             });
         })
         .catch(err => {
