@@ -26,8 +26,6 @@ export class AccountComponent implements OnInit {
   password: string;
   password2: string;
   creator: string;
-
-  // private postId: string;
   constructor(
     private http: HttpClient,
     private loginService: LoginService,
@@ -69,22 +67,21 @@ export class AccountComponent implements OnInit {
       .get<{ message: string; account: Account }>(
         "http://localhost:3000/account/" + this.userId)
       .subscribe(AccountData => {
-      // this.isLoading = false;
-        console.log(AccountData);
-        console.log(AccountData.account.loginName);
-
-        // this.account = AccountData;
-      // this.firstName = AccountData.firstName;
-      // this.lastName = AccountData.account.lastName;
-      // this.address = AccountData.account.address;
-      // this.city = AccountData.account.city;
-      // this.state = AccountData.account.state;
-      // this.zipcode = AccountData.account.zipcode;
-      // this.email = AccountData.account.email;
-      // this.loginName = AccountData.account.loginName;
-      // this.password = AccountData.account.password;
-      // this.password2 = AccountData.account.password2;
-      // this.creator = AccountData.account.creator;
+      // console.log(AccountData);
+      this._id = AccountData["_id"];
+      this.firstName = AccountData["firstName"];
+      this.lastName = AccountData["lastName"];
+      this.address = AccountData["address"];
+      this.city = AccountData["city"];
+      this.state = AccountData["state"];
+      this.zipcode = AccountData["zipcode"];
+      this.email = AccountData["email"];
+      this.loginName = AccountData["loginName"];
+      this.password = AccountData["password"];
+      this.password2 = AccountData["password2"];
+      this.creator = AccountData["creator"];
+      // console.log("id is:", this._id);
+      // console.log("creator is:", this.creator );
     })
   }
 

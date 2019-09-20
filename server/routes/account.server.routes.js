@@ -11,19 +11,19 @@ app.put("/:id", checkAuth, (req, res, next) => {
         const account = new Account({
             _id: req.body.id,
             firstName: req.body.firstName,
-            lastName: req.body.title,
-            address: req.body.title,
-            city: req.body.title,
-            state: req.body.title,
-            zipcode: req.body.title,
-            email: req.body.title,
-            loginName: req.body.email, 
+            lastName: req.body.lastName,
+            address: req.body.address,
+            city: req.body.city,
+            state: req.body.state,
+            zipcode: req.body.zipcode,
+            email: req.body.email,
+            loginName: req.body.loginName, 
             password: req.body.password,
             password2: req.body.password2,
-            creator: req.userData.userId,
+            creator: req.body.creator,
         });
         account.updateOne(
-            { _id: req.params.id, creator: req.userData.userId },
+            { _id: req.params._id, creator: req.params.creator},
             account
         ).then(result => {
             if (result.nModified > 0) {
@@ -36,7 +36,7 @@ app.put("/:id", checkAuth, (req, res, next) => {
 );
 
 app.get("/:id", (req, res, next) => {
-    console.log(" server get id # is:", req.params.id);
+    // console.log(" server get id # is:", req.params.id);
     Account.findOne({ creator: req.params.id })
     .then(account => {
         if (account) {
