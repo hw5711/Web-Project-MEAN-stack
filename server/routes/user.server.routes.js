@@ -58,7 +58,7 @@ router.post("/loginacc", (req, res, next) => {
         .then(user => {
             if (!user) {
                 return res.status(401).json({
-                    message: "Auth failed"
+                    message: "1Auth failed"
                 });
             }
             fetchedUser = user;
@@ -67,7 +67,7 @@ router.post("/loginacc", (req, res, next) => {
         .then(result => {
             if (!result) {
                 return res.status(401).json({
-                    message: "Auth failed"
+                    message: "2Auth failed"
                 });
             }
             const token = jwt.sign(
@@ -83,7 +83,7 @@ router.post("/loginacc", (req, res, next) => {
         })
         .catch(err => {
             return res.status(401).json({
-                message: "Auth failed"
+                message: "3Auth failed"
             });
         });
 });

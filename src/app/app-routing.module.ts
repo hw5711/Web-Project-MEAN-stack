@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'textbook', component: TextbooksearchComponent, canActivate: [LoginGuard]},
   { path: 'election', component: ElectionComponent, canActivate: [LoginGuard]},
   { path: 'meal', component: MealComponent, canActivate: [LoginGuard]},
-  { path: 'activities',component: ActivitiesComponent},
+  { path: 'activities', component: ActivitiesComponent, canActivate: [LoginGuard]},
   { path: 'bus', component: BusComponent, canActivate: [LoginGuard]},
   { path: 'roommate', component: FindrmComponent, canActivate: [LoginGuard]},
   { path: "loginacc", component: LoginaccComponent },

@@ -7,9 +7,9 @@ const checkAuth = require("../middleware/check-auth");
 const app = express.Router();
 
 //use for updating the account info
-app.put("/:id", checkAuth, (req, res, next) => {
+app.put("/:id", (req, res, next) => {
         const account = new Account({
-            _id: req.body.id,
+            _id: req.body._id,
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             address: req.body.address,
@@ -22,21 +22,22 @@ app.put("/:id", checkAuth, (req, res, next) => {
             password2: req.body.password2,
             creator: req.body.creator,
         });
-        account.updateOne(
-            { _id: req.params._id, creator: req.params.creator},
+        console.log("req. id : ", req.body._id);
+        console.log("req. id : ", req.body.firstName);
+
+        Account.updateOne(
+            { _id: req.body._id },
             account
         ).then(result => {
-            if (result.nModified > 0) {
-                res.status(200).json({ message: "Account update successful!" });
-            } else {
-                res.status(401).json({ message: "Account not authorized!" });
-            }
+        console.log(result.n);
+        // res.status(200).json({ message: "Account update successful!" });
+        res.status(200).json(result);
         });
-    }
-);
+    
+    });
 
 app.get("/:id", (req, res, next) => {
-    // console.log(" server get id # is:", req.params.id);
+    console.log(" server get id # is:", req.params.id);
     Account.findOne({ creator: req.params.id })
     .then(account => {
         if (account) {

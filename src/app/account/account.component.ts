@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import{ Account } from "./account.model";
 import { LoginService } from "../login/login.service";
 import { ActivatedRoute, ParamMap } from "@angular/router";
+import { Router } from "@angular/router";
+
+
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.scss']
 })
+
+@Injectable({ providedIn: "root" })
 export class AccountComponent implements OnInit {
 
   account: Account;
@@ -39,6 +45,7 @@ export class AccountComponent implements OnInit {
   //Update account info
   SaveUpdate(){
     let account = { 
+      _id: this._id,
       firstName: this.firstName,
       lastName: this.lastName,
       address: this.address,
@@ -49,19 +56,20 @@ export class AccountComponent implements OnInit {
       loginName: this.loginName,
       password: this.password,
       password2: this.password2,
-      creator: this.creator
+      creator: this.userId
     };
-
+    console.log("id is:", this._id);
     this.http
       .put("http://localhost:3000/account/" + this._id, account)
       .subscribe(response => {
         // this.router.navigate(["/"]);
-        console.log(response);
+        console.log("res is :" ,response);
       });
   }
 
   //get default account default
   getAccount() {
+    //pass creator id to server
     console.log("client side:", this.userId);
     this.http
       .get<{ message: string; account: Account }>(
