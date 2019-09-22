@@ -1,13 +1,72 @@
-<p>*** meal plan page ***</p>
 
 <p>A student can purchase meal plan online by credit card. He/she can buy meal plan by month at $600 or by semester at a 5%
-discount.
+discount. Please select a meal plan
 </p>
 
-<mat-radio-group class="example-radio-group" [(ngModel)]="selectedChoice">
-    <mat-radio-button class="example-radio-button" *ngFor="let choice of choices" [value]="choice">
+<mat-radio-group class="example-radio-group" [(ngModel)]="selectedChoice" (click)="select = true"  >
+    <mat-radio-button class="example-radio-button" *ngFor="let choice of choices" [value]="choice" style="margin-left: 30px">
         {{choice}}
     </mat-radio-button>
 </mat-radio-group>
-<div class="example-selected-value">Your favorite season is: {{selectedChoice}}</div>
 
+<br>
+    <div *ngIf="select" style="margin-left: 30px" >
+        <mat-form-field>
+            <a>Name on the card:</a>
+            <input matInput type="text" [(ngModel)]="nameOnCard" required>
+        </mat-form-field>
+        <span style="margin-left: 20px"></span>
+        <mat-form-field>
+            <a>Phone number:</a>
+            <input matInput type="text" [(ngModel)]="phone" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <a>Card number:</a>
+            <input matInput type="text" [(ngModel)]="cardNum" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <a>Experation date(mm/yyyy):</a>
+            <input matInput type="text" [(ngModel)]="exp" required>
+        </mat-form-field>
+        <span style="margin-left: 20px"></span>
+        <mat-form-field>
+            <a>CVV:</a>
+            <input matInput type="text" [(ngModel)]="cvv" required>
+        </mat-form-field>
+        <br>
+        <a>Billing Info:</a>
+        <br>
+        <mat-form-field>
+            <a>Name:</a>
+            <input matInput type="text" [(ngModel)]="billingName" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <a>Address:</a>
+            <input matInput type="text" [(ngModel)]="address" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <a>City:</a>
+            <input matInput type="text" [(ngModel)]="city" required>
+        </mat-form-field>
+        <span style="margin-left: 20px"></span>
+        <mat-form-field>
+            <a>State:</a>
+            <input matInput type="text" [(ngModel)]="state" required>
+        </mat-form-field>
+        <span style="margin-left: 20px"></span>
+        <mat-form-field>
+            <a>Zipcode:</a>
+            <input matInput type="text" [(ngModel)]="zipcode" required>
+        </mat-form-field>
+        <br>
+    
+        <!-- <button mat-raised-button color="accent" (click)="()">Place Order</button> -->
+<br>
+<button mat-raised-button color="accent" type="submit" style="margin-left: 30px; margin-top: 1em" [disabled]="!select"
+    (click)="payMeal()">Pay</button>
+
+    </div>

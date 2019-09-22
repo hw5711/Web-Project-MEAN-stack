@@ -10,6 +10,7 @@ const userRoutes = require("./routes/user.server.routes");
 const activitiesRoutes = require("./routes/activities.server.routes");
 const textbookRoutes = require("./routes/textbook.server.routes");
 const accountRoutes = require("./routes/account.server.routes");
+const mealRoutes = require("./routes/meal.server.route");
 
 const app = express();
 
@@ -60,5 +61,6 @@ app.use("/user", userRoutes);
 app.use("/activities", activitiesRoutes);
 app.use("/textbook", textbookRoutes);
 app.use("/account", accountRoutes);
+app.use("/meal", mealRoutes);
 
 module.exports = app;

@@ -35,7 +35,6 @@ import { FindrmComponent } from './findrm/findrm.component';
 import { HeaderComponent } from './header/header.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +69,7 @@ import { HeaderComponent } from './header/header.component';
     MatRippleModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

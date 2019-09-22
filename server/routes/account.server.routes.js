@@ -9,7 +9,7 @@ const app = express.Router();
 //use for updating the account info
 app.put("/:id", (req, res, next) => {
         const account = new Account({
-            _id: req.body._id,
+            //_id: req.body._id,
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             address: req.body.address,
@@ -20,21 +20,32 @@ app.put("/:id", (req, res, next) => {
             loginName: req.body.loginName, 
             password: req.body.password,
             password2: req.body.password2,
-            creator: req.body.creator,
+           // creator: req.body.creator,
         });
-        console.log("req. id : ", req.body._id);
-        console.log("req. id : ", req.body.firstName);
+        console.log("req. id : ", req.body.creator);
+        console.log("req. name : ", req.body.firstName);
 
         Account.updateOne(
-            { _id: req.body._id },
-            account
-        ).then(result => {
-        console.log(result.n);
-        // res.status(200).json({ message: "Account update successful!" });
-        res.status(200).json(result);
-        });
-    
-    });
+            { creator: req.body.creator },
+            {
+                firstName: req.body.firstName, 
+                lastName: req.body.lastName,
+                address: req.body.address,
+                city: req.body.city,
+                state: req.body.state,
+                zipcode: req.body.zipcode,
+                email: req.body.email,
+                password: req.body.password,
+                password2: req.body.password
+            },
+            function (err, result){
+                if (result.n > 0) {
+                    res.status(200).json({ message: "Update successful!" });
+                } else {
+                    res.status(401).json({ message: "Not authorized!" });
+                }
+            });
+});
 
 app.get("/:id", (req, res, next) => {
     console.log(" server get id # is:", req.params.id);

@@ -1,5 +1,4 @@
 export interface Account {
-     _id: string,
     firstName: string,
     lastName: string,
     address: string,
