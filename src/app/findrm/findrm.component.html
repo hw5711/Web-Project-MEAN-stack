@@ -11,9 +11,28 @@ etc. The system can search the database and find the closest match for that stud
     <input type="text" [(ngModel)]="gender" name="gender">
     <br>
     <a>Price Range:</a>
-    <input type="text" [(ngModel)]="range" name="range">
+    <input type="text" [(ngModel)]="rangemin" name="rangemin">
+    <input type="text" [(ngModel)]="rangemax" [min]="reangemin" name="rangemax">
     <br>
 
     <button>Search</button>
 
     <p>Search Result:</p>
+
+
+
+    <hr>
+    <p>this section is for create data</p>
+
+        <a>Move in Date:</a>
+        <input type="text" [(ngModel)]="tempMoveInDate" name="tempMoveInDate">
+        <br>
+        <a>Male/Female:</a>
+        <input type="text" [(ngModel)]="tempGender" name="tempGender">
+        <br>
+        <a>Price Range:</a>
+        <input type="text" [(ngModel)]="tempRangeMin" name="tempRangemin">
+        <input type="text" [(ngModel)]="tempRangeMin" name="tempRangemax">
+        <br>
+        
+        <button>Add to the database</button>
