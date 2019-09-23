@@ -1,0 +1,15 @@
+export interface Bus {
+    nameOnCard: string,
+    cardNum: string,
+    cvv: string,
+    exp: string,
+    billingName: string,
+    address: string,
+    city: string,
+    state: string,
+    zipcode: string,
+    phone: string,
+    //choice: string[],
+    amount: number,
+    creator: string,
+}
