@@ -1,27 +1,29 @@
-<p>A student can buy bus tickets online by credit card. There are three zones with $2, $4, and$6, respectively. The student
-can choose multiple zones and buy multiple tickets. The student can also buy bus cards which cost $40 each.
-</p>
-<div>
-    <mat-checkbox [(ngModel)]="checked2">$2 ticket for Zone1</mat-checkbox>
-    <span style="margin-left:30px"></span>
-    <input type="number" placeholder="0" [(ngModel)]="twoQ"   (click)="display()">
-    <br>
-    <mat-checkbox [(ngModel)]="checked4" >$4 ticket for Zone2</mat-checkbox>
-    <span style="margin-left:30px"></span>
-    <input type="number" placeholder="0" [(ngModel)]="fourQ"   (click)="display()">
-    <br>
-    <mat-checkbox [(ngModel)]="checked6">$6 ticket for Zone3</mat-checkbox>
-    <span style="margin-left:30px"></span>
-    <input type="number" placeholder="0" [(ngModel)]="sixQ"   (click)="display()">
-    <br>
-    <mat-checkbox [(ngModel)]="checked40">$40 bus card </mat-checkbox>
-    <span style="margin-left:65px"></span>
-    <input type="number" placeholder="0" [(ngModel)]="fortyQ"   (click)="display()">
-    <p>subtotal: {{subtotal}}</p>
-</div>
+<!-- <mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+</mat-dialog-actions>
+
+<h2 mat-dialog-title>{{title}}</h2>
+
+<mat-dialog-content [formGroup]="form">
+    <mat-form-field>
+        <input matInput placeholder="Course Description" formControlName="description">
+    </mat-form-field>
+</mat-dialog-content> -->
 
 
-<div *ngIf="checked2 || checked4 || checked6 ||checked40" style="margin-left: 30px">
+<!-- <div class="content">
+    <div class="title">
+        <h1>Payment:</h1>
+    </div>
+
+    <div class="paysection">
+
+    </div>
+</div> -->
+
+<!-- 
+<div *ngIf="select" style="margin-left: 30px">
     <mat-form-field>
         <a>Name on the card:</a>
         <input matInput type="text" [(ngModel)]="nameOnCard" required>
@@ -75,9 +77,8 @@ can choose multiple zones and buy multiple tickets. The student can also buy bus
     </mat-form-field>
     <br>
 
-    <!-- <button mat-raised-button color="accent" (click)="()">Place Order</button> -->
-    <br>
+   
     <button mat-raised-button color="accent" type="submit" style="margin-left: 30px; margin-top: 1em"
-        [disabled]="!select" (click)="payBus()">Pay</button>
+        [disabled]="!select" (click)="payBook()">Pay</button>
 
-</div>
+</div> -->

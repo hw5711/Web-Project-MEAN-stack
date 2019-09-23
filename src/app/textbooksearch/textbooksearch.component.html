@@ -1,47 +1,71 @@
-<p>*** textbooksearch page ***</p>
+<p>BUY RULES: A student can purchase textbooks online. After finding the textbooks, the student can purchase textbooks
+    online by
+    credit cards. The Student can also see all the purchases he/she has made so far. If the total amount exceeds $200,
+    he/she can get a discount of 10% in the next purchase.
+</p>
 
 <div>
 
     <P>this area is for storing data(for test)</P>
-    <form (submit)="searchBook(postForm)" #postForm="ngForm">
+    <form (submit)="searchBook(searchForm)" #searchForm="ngForm">
         <mat-form-field>
             <a>ISBM:</a>
             <input matInput type="text" name="isbn" ngModel></mat-form-field>
-        <br>
+        <span style="margin-left: 20px"></span>
         <mat-form-field>
             <a>Author:</a>
             <input matInput type="text" name="author" ngModel></mat-form-field>
-        <br>
+        <span style="margin-left: 20px"></span>
         <mat-form-field>
             <a>Title:</a>
             <input matInput type="text" name="title" ngModel></mat-form-field>
-        <br>
-        <mat-form-field>
-            <a>Price:</a>
-            <input matInput type="number" name="price" ngModel></mat-form-field>
-        <br>
+        <span style="margin-left: 20px"></span>
         <button mat-raised-button color="accent" type="submit">Search</button>
         <br>
     </form>
     <br>
 
+    <h1>Search Resault:</h1>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th><span style="margin-left: 20px"></span>Author</th>
+                <th><span style="margin-left: 20px"></span>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books">
+                <td>{{ book.title }}</td>
+                <td><span style="margin-left: 20px"></span>{{ book.author }}</td>
+                <td><span style="margin-left: 20px"></span>{{ book.price }}</td>
+                <!-- <input  matInput type="number" [(ngModel)]="quantity" > -->
+                <button mat-raised-button color="accent" (click)="openDialog()" style="margin-left: 20px">Buy</button>
+            </tr>
+        </tbody>
+    </table>
 
 
-    <hr>
+
+    
+    <br>
+
+    <hr style="margin-top: 10em"> 
     <P>this area is for creating data(for test)</P>
     <form (submit)="saveBook(postForm)" #postForm="ngForm">
         <mat-form-field>
         <a>ISBM:</a>
         <input  matInput type="text"  name="isbn" ngModel></mat-form-field>
-        <br>
+        <span style="margin-left: 20px"></span>
         <mat-form-field>
         <a>Author:</a>
         <input matInput type="text"  name="author" ngModel></mat-form-field>
-        <br>
+         <span style="margin-left: 20px"></span>
         <mat-form-field>
         <a>Title:</a>
         <input matInput type="text"  name="title" ngModel></mat-form-field>
-        <br>
+        <span style="margin-left: 20px"></span>
         <mat-form-field>
         <a>Price:</a>
         <input matInput type="number"  name="price" ngModel></mat-form-field>
@@ -50,44 +74,7 @@
     </form>
     <br>
 
-<div>
-    <ul *ngFor="let book of data">
-        <li>{{ book.title }}</li>
-    </ul>
+
+
+  
 </div>
-
-    
-
-<div *ngIf="!found">
-<p>Book search result(not found):</p>
-</div>
-
-
-<div *ngIf="!found">
-    <p>Book search result(found):</p>
-    <button>Buy</button>
-
-    <p>BUY RULES: A student can purchase textbooks online. After finding the textbooks, the student can purchase textbooks online by
-    credit cards. The Student can also see all the purchases he/she has made so far. If the total amount exceeds $200,
-    he/she can get a discount of 10% in the next purchase.
-</p>
-</div>
-<hr>
-<mat-accordion >
-    <mat-expansion-panel *ngFor="let post of textbook">
-        <mat-expansion-panel-header>
-           Title :{{ post.title }}
-        </mat-expansion-panel-header>
-        <p>Isbn: {{ post.isbn }}</p>
-        <p>Author : {{ post.author }}</p>
-        <p>Price :$ {{ post.price }}</p>2
-        <mat-action-row>
-            <button mat-button color="primary">Buy</button>
-        </mat-action-row>
-    </mat-expansion-panel>
-</mat-accordion>
-
-
-</div>
-
- <button mat-button color="warn">DELETE</button>

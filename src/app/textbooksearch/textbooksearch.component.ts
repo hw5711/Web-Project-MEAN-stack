@@ -3,6 +3,8 @@ import { HttpClient } from "@angular/common/http";
 import { NgForm } from "@angular/forms";
 import { Textbook } from './textbook.model';
 import { TextbookService } from './textbook.service';
+//import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+//import { Buydialog } from './buydialog/buyDialog.component';
 
 @Component({
   selector: 'app-textbooksearch',
@@ -11,31 +13,53 @@ import { TextbookService } from './textbook.service';
 })
 export class TextbooksearchComponent implements OnInit {
 
-  found: false;
-  textbook: Textbook[] = [];
-  title = '';
-  author = '';
-  isbn = 0;
-  private data: Textbook [] = [];
-  
-  constructor(
-    private http: HttpClient,
-    public postsService: TextbookService) { }
+found: false;
+textbook: Textbook[] = [];
+title = '';
+author = '';
+isbn = 0;
+price: number;
+quantity: number;
 
-  ngOnInit() {}
+nameOnCard: string;
+cardNum: string;
+cvv: string;
+exp: string;
+billingName: string;
+address: string;
+city: string;
+state: string;
+zipcode: string;
+phone: string;
+choice: string;
+creator: string;
 
-  searchBook(form: NgForm){
-let req = { isbn: form.value.isbn, title: form.value.title, author: form.value.author, price: form.value.price };
+totalAamount: number;
+
+private books: any;
+private searchdata: Textbook[] = [];
+
+constructor(
+  private http: HttpClient,
+  public postsService: TextbookService) { }
+
+ngOnInit() {}
+
+searchBook(form: NgForm){
+let req = { isbn: form.value.isbn, title: form.value.title, author: form.value.author };
 this.http
-  .post<{ message: string, testbooks: Textbook[] }>(
-  "http://localhost:3000/textbook/search/", req
-).subscribe(postData => {
-  this.data = postData.testbooks;
-  console.log("result: ", postData.message);
+  .post("http://localhost:3000/textbook/search", req)
+  .subscribe(postData => {
+    this.books = postData;
+    //console.log("result: ", postData);
+    // console.log("result: ", postData.toString);
 });
 
 console.log("need to finish this search function , mongoose query")
 }
+
+
+
 //this function is used for create database
   saveBook(form: NgForm){
     let req = { isbn: form.value.isbn, title: form.value.title, author: form.value.author, price: form.value.price };

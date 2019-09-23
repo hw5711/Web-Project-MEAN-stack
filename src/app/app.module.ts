@@ -17,6 +17,7 @@ import {
 
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { ReactiveFormsModule } from '@angular/forms';
+//import { MatDialogModule } from '@angular/material/dialog';
 
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +34,7 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { BusComponent } from './bus/bus.component';
 import { FindrmComponent } from './findrm/findrm.component';
 import { HeaderComponent } from './header/header.component';
+import { Buydialog } from './textbooksearch/buydialog/buyDialog.component';
 
 
 @NgModule({
@@ -49,7 +51,8 @@ import { HeaderComponent } from './header/header.component';
     ActivitiesComponent,
     BusComponent,
     FindrmComponent,
-    HeaderComponent
+    HeaderComponent,
+    Buydialog
   ],
   imports: [
     BrowserModule,
@@ -70,8 +73,10 @@ import { HeaderComponent } from './header/header.component';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    //MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  //entryComponents: [Buydialog]
 })
 export class AppModule { }
