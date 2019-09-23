@@ -75,7 +75,10 @@ export class BusComponent implements OnInit {
       state: this.state,
       zipcode: this.zipcode,
       phone: this.phone,
-      //choice: this.choice,
+      choice2: this.twoQ,
+      choice4: this.fourQ,
+      choice6: this.sixQ,
+      choice40: this.fortyQ,
       amount: this.subtotal,
       creator: this.userId
     }

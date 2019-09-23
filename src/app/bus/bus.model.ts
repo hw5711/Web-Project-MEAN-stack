@@ -9,7 +9,10 @@ export interface Bus {
     state: string,
     zipcode: string,
     phone: string,
-    //choice: string[],
+    choice2: number,
+    choice4: number,
+    choice6: number,
+    choice40: number,
     amount: number,
     creator: string,
 }

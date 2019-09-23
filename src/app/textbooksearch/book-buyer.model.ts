@@ -10,10 +10,10 @@ export interface BookBuyer {
     zipcode: string,
     phone: string,
     choice: string,
-    creator: string,
     isbn: String,
     title: String,
     author: String,
     price: Number,
-    quantity: Number
+    quantity: Number,
+    creator: string,
 }

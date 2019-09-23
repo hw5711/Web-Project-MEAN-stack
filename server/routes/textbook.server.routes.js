@@ -2,6 +2,7 @@ const express = require("express");
 var mongoose = require('mongoose');
 
 const textbook = require("../models/textbook");
+const buybooks = require("../models/buybooks");
 
 const app = express.Router();
 
@@ -32,36 +33,12 @@ app.post("/search",function (req, res, next) {
     }
 });
 
-app.post("/create", function (req, res, next) {
-    textbook.create(req.body, function (err, post) {
+app.post("/buy", function (req, res, next) {
+    buybooks.create(req.body, function (err, post) {
         if (err) return next(err);
         console.log(post);
-        // res.json(post);
+        return res.json(post);
     });
 });
-
-/*** Textbook page */
-
-// app.get("/search", (req, res, next) => {
-//     const posts = Textbook[
-//         {
-//             isbn: "12421l",
-//             title: "book1 :First server-side post",
-//             author: "jim",
-//             price: 14
-//         },
-//         {
-//             isbn: "132",
-//             title: "Second book: server-side post",
-//             author: "lily",
-//             price: 20
-//         }
-//     ];
-//     res.status(200).json({
-//         message: "Posts fetched successfully!",
-//         posts: posts
-//     });
-//     console.log("server side1");
-// })
 
 module.exports = app;

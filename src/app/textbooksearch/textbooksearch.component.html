@@ -1,12 +1,4 @@
-<p>BUY RULES: A student can purchase textbooks online. After finding the textbooks, the student can purchase textbooks
-    online by
-    credit cards. The Student can also see all the purchases he/she has made so far. If the total amount exceeds $200,
-    he/she can get a discount of 10% in the next purchase.
-</p>
-
 <div>
-
-    <P>this area is for storing data(for test)</P>
     <form (submit)="searchBook(searchForm)" #searchForm="ngForm">
         <mat-form-field>
             <a>ISBM:</a>
@@ -23,6 +15,8 @@
         <button mat-raised-button color="accent" type="submit">Search</button>
         <br>
     </form>
+  
+
     <br>
 
     <h1>Search Resault:</h1>
@@ -33,6 +27,7 @@
                 <th>Title</th>
                 <th><span style="margin-left: 20px"></span>Author</th>
                 <th><span style="margin-left: 20px"></span>Price</th>
+                <th><span style="margin-left: 20px"></span>Quantity</th>
             </tr>
         </thead>
         <tbody>
@@ -40,12 +35,75 @@
                 <td>{{ book.title }}</td>
                 <td><span style="margin-left: 20px"></span>{{ book.author }}</td>
                 <td><span style="margin-left: 20px"></span>{{ book.price }}</td>
-                <!-- <input  matInput type="number" [(ngModel)]="quantity" > -->
-                <button mat-raised-button color="accent" (click)="openDialog()" style="margin-left: 20px">Buy</button>
+                <span style="margin-left: 20px"></span>
+                <input type="number" placeholder="0" [min]=0 [(ngModel)]="quantity" (click)="countSubtotal()">
             </tr>
         </tbody>
     </table>
+<br>
+<br>
+    <a> subtotal :$ {{subtotal}}</a><a>(If the total amount exceeds $200, you will get a discount of 10%.)</a>
 
+<br>
+<a>Make a payment:</a>
+<div *ngIf="select" style="margin-left: 30px">
+    <mat-form-field>
+        <a>Name on the card:</a>
+        <input matInput type="text" [(ngModel)]="nameOnCard" required>
+    </mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
+        <a>Phone number:</a>
+        <input matInput type="text" [(ngModel)]="phone" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <a>Card number:</a>
+        <input matInput type="text" [(ngModel)]="cardNum" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <a>Experation date(mm/yyyy):</a>
+        <input matInput type="text" [(ngModel)]="exp" required>
+    </mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
+        <a>CVV:</a>
+        <input matInput type="text" [(ngModel)]="cvv" required>
+    </mat-form-field>
+    <br>
+    <a>Billing Info:</a>
+    <br>
+    <mat-form-field>
+        <a>Name:</a>
+        <input matInput type="text" [(ngModel)]="billingName" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <a>Address:</a>
+        <input matInput type="text" [(ngModel)]="address" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <a>City:</a>
+        <input matInput type="text" [(ngModel)]="city" required>
+    </mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
+        <a>State:</a>
+        <input matInput type="text" [(ngModel)]="state" required>
+    </mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
+        <a>Zipcode:</a>
+        <input matInput type="text" [(ngModel)]="zipcode" required>
+    </mat-form-field>
+    <br>
+    <br>
+    <button mat-raised-button color="accent" type="submit" style="margin-left: 30px; margin-top: 1em"
+        [disabled]="!select" (click)="payBook()">Pay</button>
+
+</div>
 
 
     

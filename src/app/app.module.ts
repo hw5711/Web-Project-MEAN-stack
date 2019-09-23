@@ -34,7 +34,6 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { BusComponent } from './bus/bus.component';
 import { FindrmComponent } from './findrm/findrm.component';
 import { HeaderComponent } from './header/header.component';
-import { Buydialog } from './textbooksearch/buydialog/buyDialog.component';
 
 
 @NgModule({
@@ -51,8 +50,7 @@ import { Buydialog } from './textbooksearch/buydialog/buyDialog.component';
     ActivitiesComponent,
     BusComponent,
     FindrmComponent,
-    HeaderComponent,
-    Buydialog
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

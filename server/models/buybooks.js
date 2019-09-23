@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
-var BusSchema = new mongoose.Schema({
+var buybooksSchema = new mongoose.Schema({
+    isbn: String, 
+    title: String, 
+    author: String, 
+    price: Number,
     nameOnCard: String,
     cardNum: String,
     cvv: String,
@@ -11,13 +15,8 @@ var BusSchema = new mongoose.Schema({
     state: String,
     zipcode: String,
     phone: String,
-    choice2: Number,
-    choice4: Number,
-    choice6: Number,
-    choice40: Number,
     amount: Number,
     creator: String,
-    // updated_date: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('Bus', BusSchema);
+module.exports = mongoose.model('buybooks', buybooksSchema);
