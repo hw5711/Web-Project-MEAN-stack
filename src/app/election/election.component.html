@@ -1,6 +1,19 @@
-<p>election works!</p>
-
 <p>The website runs a poll to test whom users will vote for in a fictitious election of the head of the student’s union.
 You can store the results of the poll in a database, and draw a bar chart of the results using the image functions.
 Suppose the three candidates are: John, Mary and Susan.</p>
 
+<mat-radio-group class="example-radio-group" [(ngModel)]="selectedChoice" (click)="select = true">
+    <mat-radio-button class="example-radio-button" *ngFor="let choice of choices" [value]="choice"
+        style="margin-left: 30px">
+        {{choice}}
+    </mat-radio-button>
+</mat-radio-group>
+
+<button mat-raised-button color="accent" style="margin-left: 30px; margin-top: 1em" [disabled]="!select"
+    (click)="vote()">Submit</button>
+<!-- <div *ngIf="voteFinished" style="margin-left: 20px"> -->
+<a *ngIf="voteFinished" style="margin-left: 20px">Vote seccessed!</a>
+<!-- </div> -->
+<br>
+<button mat-raised-button color="accent" style="margin-left: 30px; margin-top: 1em"
+    (click)="show()">Show Result</button>

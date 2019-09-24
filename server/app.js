@@ -12,6 +12,7 @@ const textbookRoutes = require("./routes/textbook.server.routes");
 const accountRoutes = require("./routes/account.server.routes");
 const mealRoutes = require("./routes/meal.server.route");
 const busRoutes = require("./routes/bus.server.routes");
+const electionRoutes = require("./routes/election.server.routes");
 
 const app = express();
 
@@ -64,5 +65,6 @@ app.use("/textbook", textbookRoutes);
 app.use("/account", accountRoutes);
 app.use("/meal", mealRoutes);
 app.use("/bus", busRoutes);
+app.use("/election", electionRoutes);
 
 module.exports = app;

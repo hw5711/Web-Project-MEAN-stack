@@ -38,6 +38,11 @@ export class FindrmComponent implements OnInit {
 
   addData(){
     let req = { 
+      moveInDate: this.tempMoveInDate,
+      gender: this.tempGender,
+      rangemin: this.tempRangeMin,
+      rangemax: this.tempRangeMax,
+      
 
      };
     this.http
