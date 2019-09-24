@@ -5,7 +5,7 @@ etc. The system can search the database and find the closest match for that stud
 </p>
 
     <a>Move in Date:</a>
-    <input type="text" [(ngModel)]="moveInDate" name="moveInDate">
+    <input type="date" [(ngModel)]="moveInDate" name="moveInDate">
     <br>
     <a>Male/Female:</a>
     <input type="text" [(ngModel)]="gender" name="gender">
@@ -14,18 +14,14 @@ etc. The system can search the database and find the closest match for that stud
     <input type="text" [(ngModel)]="rangemin" name="rangemin">
     <input type="text" [(ngModel)]="rangemax" [min]="reangemin" name="rangemax">
     <br>
-
     <button>Search</button>
-
     <p>Search Result:</p>
 
-
-
-    <hr>
+    <hr style="margin-top: 10em">
     <p>this section is for create data</p>
 
         <a>Move in Date:</a>
-        <input type="text" [(ngModel)]="tempMoveInDate" name="tempMoveInDate">
+        <input type="date" [(ngModel)]="tempMoveInDate" name="tempMoveInDate">
         <br>
         <a>Male/Female:</a>
         <input type="text" [(ngModel)]="tempGender" name="tempGender">
@@ -34,5 +30,8 @@ etc. The system can search the database and find the closest match for that stud
         <input type="text" [(ngModel)]="tempRangeMin" name="tempRangemin">
         <input type="text" [(ngModel)]="tempRangeMin" name="tempRangemax">
         <br>
+        <a>StudentID:</a>
+        <input type="text" [(ngModel)]="tempID" name="tempID">
+        <br>
         
-        <button>Add to the database</button>
+        <button (click)="addData()">Add to the database</button>
