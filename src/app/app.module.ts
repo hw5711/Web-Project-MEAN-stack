@@ -15,10 +15,7 @@ import {
   MatProgressSpinnerModule
 } from "@angular/material";
 import { ChartsModule } from 'ng2-charts';
-import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { ReactiveFormsModule } from '@angular/forms';
-//import { MatDialogModule } from '@angular/material/dialog';
-
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,8 +31,6 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { BusComponent } from './bus/bus.component';
 import { FindrmComponent } from './findrm/findrm.component';
 import { HeaderComponent } from './header/header.component';
-
-
 
 @NgModule({
   declarations: [

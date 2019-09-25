@@ -17,7 +17,8 @@ router.post("/register", (req, res, next) => {
         
         user.save()
             .then(result => {
-                // console.log("after create an account , server result is :", result._id);
+                console.log("after create an account , server result is :", result._id);
+
                 const account = new Account({
                     firstName: "",
                     lastName: "",
@@ -29,8 +30,9 @@ router.post("/register", (req, res, next) => {
                     loginName: req.body.email, //suppose login name is email
                     password: "",
                     password2: "",
-                    creator: req.userData.userId
+                    creator: result._id
                 });
+           // console.log("test: ", account);
                 account.save()
                     .then(result => {
                         console.log("account created with new user");
@@ -38,6 +40,7 @@ router.post("/register", (req, res, next) => {
                     .catch(err => {
                         console.log("account created faild");
                     });
+
                 res.status(201).json({
                     message: "User created!",
                     result: result,

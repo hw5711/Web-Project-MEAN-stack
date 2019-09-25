@@ -8,7 +8,7 @@ import { LoginService } from "../login.service";
     styleUrls: ["./register.component.css"]
 })
 export class RegisterComponent {
-    isLoading = false;
+   // isLoading = false;
 
     constructor(public authService: LoginService) { }
 
@@ -16,7 +16,7 @@ export class RegisterComponent {
         if (form.invalid) {
             return;
         }
-        this.isLoading = true;
+       // this.isLoading = true;
         this.authService.createUser(form.value.email, form.value.password);
     }
 }
