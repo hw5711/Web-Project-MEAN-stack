@@ -14,6 +14,7 @@ const mealRoutes = require("./routes/meal.server.route");
 const busRoutes = require("./routes/bus.server.routes");
 const electionRoutes = require("./routes/election.server.routes");
 const searchpeopleRoutes = require("./routes/searchpeople.server.routes");
+const findroommateRoutes = require("./routes/findrm.server.routes");
 
 const app = express();
 
@@ -68,5 +69,6 @@ app.use("/meal", mealRoutes);
 app.use("/bus", busRoutes);
 app.use("/election", electionRoutes);
 app.use("/searchpeople", searchpeopleRoutes);
+app.use("/findroommate", findroommateRoutes);
 
 module.exports = app;

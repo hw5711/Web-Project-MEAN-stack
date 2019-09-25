@@ -1,37 +1,83 @@
-<p>*** find a roommates ***</p>
-
 <p>The website can help students to find roommates. A student can enter: date to move in, male/female, approximate price,
 etc. The system can search the database and find the closest match for that student.
 </p>
 
-    <a>Move in Date:</a>
-    <input type="date" [(ngModel)]="moveInDate" name="moveInDate">
-    <br>
-    <a>Male/Female:</a>
-    <input type="text" [(ngModel)]="gender" name="gender">
-    <br>
-    <a>Price Range:</a>
-    <input type="text" [(ngModel)]="rangemin" name="rangemin">
-    <input type="text" [(ngModel)]="rangemax" [min]="reangemin" name="rangemax">
-    <br>
-    <button>Search</button>
-    <p>Search Result:</p>
-
-    <hr style="margin-top: 10em">
-    <p>this section is for create data</p>
-
+<form (submit)="searchrm(searchForm)" #searchForm="ngForm">
+    <mat-form-field>
         <a>Move in Date:</a>
-        <input type="date" [(ngModel)]="tempMoveInDate" name="tempMoveInDate">
-        <br>
+        <input matInput type="date" name="date" ngModel></mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
         <a>Male/Female:</a>
-        <input type="text" [(ngModel)]="tempGender" name="tempGender">
-        <br>
-        <a>Price Range:</a>
-        <input type="text" [(ngModel)]="tempRangeMin" name="tempRangemin">
-        <input type="text" [(ngModel)]="tempRangeMin" name="tempRangemax">
-        <br>
-        <a>StudentID:</a>
-        <input type="text" [(ngModel)]="tempID" name="tempID">
-        <br>
+        <input matInput type="text" name="gender" ngModel></mat-form-field>
+    <br>
+    <!-- <mat-form-field> -->
+        <!-- <input matInput type="number" name="lowrent" ngModel placeholder=" price" [min]=100></mat-form-field>
+    <span style="margin-left: 20px"></span> -->
+    <mat-form-field>
+    <input matInput type="number" name="highrent" ngModel placeholder="max rent" [min]=300></mat-form-field>
+<br>
+    <button mat-raised-button color="accent" type="submit">Search</button>
+</form>
         
-        <button (click)="addData()">Add to the database</button>
+        <br>
+        <h1>Search Resault:</h1>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><span style="margin-left: 20px"></span>First Name</th>
+                    <th><span style="margin-left: 20px"></span>Last Name</th>
+                    <th><span style="margin-left: 20px"></span>Department</th>
+                    <th><span style="margin-left: 20px"></span>Gender</th>
+                    <th><span style="margin-left: 20px"></span>Rent</th>
+                    <th><span style="margin-left: 20px"></span>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of person">
+                    <td>{{ p.firstname }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ p.lastname }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ p.department }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ p.gender }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ p.rent }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ p.email }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+<hr>
+<h1 style="margin-top: 10em">this area is for create database</h1>
+
+<form (submit)="createRoommate(createForm)" #createForm="ngForm">
+
+    <mat-form-field>
+        <a>First Name:</a>
+        <input matInput type="text" name="firstname" ngModel></mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
+        <a>Last Name:</a>
+        <input matInput type="text" name="lastname" ngModel></mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
+        <a>Department:</a>
+        <input matInput type="text" name="department" ngModel></mat-form-field>
+        <mat-form-field>
+        <a>Gender:</a>
+        <input matInput type="text" name="gender" ngModel></mat-form-field>
+    <br>
+    <mat-form-field>
+        <a>moveInDate:</a>
+        <input matInput type="date" name="date" ngModel></mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
+        <a>Rent:</a>
+        <input matInput type="number" name="rent" ngModel></mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
+        <a>Email:</a>
+        <input matInput type="text" name="email" ngModel></mat-form-field>
+<br>
+    <button mat-raised-button color="accent" type="submit">Save</button>
+
+</form>
