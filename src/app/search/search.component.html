@@ -1,35 +1,86 @@
 <p>*** Search People page ***</p>
-<div>
-    <form action="">
-        <a>Department:</a>
-        <input type="text" [(ngModel)]="department" name="department">
-        <br>
-        <a>First Name:</a>
-        <input type="text" [(ngModel)]="firstName" name="firstname">
-        <br>
-        <a>Last Name:</a>
-        <input type="text" [(ngModel)]="lastName" name="lastname">
+
+    <form (submit)="searchBook(searchForm)" #searchForm="ngForm">
+        <mat-form-field>
+            <a>Department:</a>
+            <input matInput type="text" name="department" ngModel></mat-form-field>
+        <span style="margin-left: 20px"></span>
+        <mat-form-field>
+            <a>First Name:</a>
+            <input matInput type="text" name="firstname" ngModel></mat-form-field>
+        <span style="margin-left: 20px"></span>
+        <mat-form-field>
+            <a>Last Name:</a>
+            <input matInput type="text" name="lastname" ngModel></mat-form-field>
+        <span style="margin-left: 20px"></span>
+
+        <button mat-raised-button color="accent" type="submit">Search</button>
         <br>
     </form>
-<br>
-    <button>Search </button>
-</div>
+    
+    <br>
+    <h1>Search Resault:</h1>
 
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><span style="margin-left: 20px"></span>First Name</th>
+                    <th><span style="margin-left: 20px"></span>Last Name</th>
+                    <th><span style="margin-left: 20px"></span>Department</th>
+                    <th><span style="margin-left: 20px"></span>Student/Faculty</th>
+                    <th><span style="margin-left: 20px"></span>Email</th>
+                    <th><span style="margin-left: 20px"></span>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of person">
+                    <td>{{ p.firstname }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ p.lastname }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ p.department }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ p.status }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ p.email }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ p.phone }}</td>
+                </tr>
+            </tbody>
+        </table>
 
 <div>
 
-<div *ngIf="!found">
+<!-- <div *ngIf="!found">
     <p>People search result(not found):</p>
-</div>
+</div> -->
 
+<hr>
+<h1>this area is for create database</h1>
 
-<div *ngIf="!found">
-    <p>People search result(found):</p>
-    <P>5. People searching
-    A student can use the website to search for a particular student or faculty. The search can be based on department,
-    first name, last name. If a record is found, you should display name, department, phone number, and email of the found
-    student/faculty. If the user can only provide the department name or either just first name or last name, then multiple
-    results may be displayed.
-</P>
-</div>
-</div>
+<form (submit)="createPeople(createForm)" #createForm="ngForm">
+    
+    <mat-form-field>
+        <a>First Name:</a>
+        <input matInput type="text" name="firstname" ngModel></mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
+        <a>Last Name:</a>
+        <input matInput type="text" name="lastname" ngModel></mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
+        <a>Department:</a>
+        <input matInput type="text" name="department" ngModel></mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
+        <a>Status:</a>
+        <input matInput type="text" name="status" ngModel></mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
+        <a>Email:</a>
+        <input matInput type="text" name="email" ngModel></mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
+        <a>Phone:</a>
+        <input matInput type="text" name="phone" ngModel></mat-form-field>
+    <span style="margin-left: 20px"></span>
+
+    <button mat-raised-button color="accent" type="submit">Save</button>
+    <br>
+</form>
+
