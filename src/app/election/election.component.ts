@@ -6,8 +6,8 @@ import { LoginService } from "../login/login.service";
 import { ActivatedRoute, ParamMap } from "@angular/router";
 
 import { Election } from "./election.model";
-import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
-import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+// import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+// import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 // import { Label } from 'ng2-charts';
 
 @Component({
@@ -38,13 +38,11 @@ export class ElectionComponent implements OnInit {
 
   vote(){
     let voteInfo = {
-      name: this.selectedChoice,
-      creator: this.userId
+      name: this.selectedChoice
     }
     this.http
-      .post("http://localhost:3000/election/vote", voteInfo)
+      .post("http://localhost:3000/election/", voteInfo)
       .subscribe(response => {
-        // this.router.navigate(["/"]);
         console.log("vote seccessed!");
       });
     this.voteFinished = true;
