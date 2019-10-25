@@ -2,7 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-//require('dotenv').config();
+require('dotenv').config();
 const nodemailer = require('nodemailer');
 
 const User = require("../models/user");
@@ -115,8 +115,10 @@ router.post("/retrive", (req, res, next) => {
                 secure: false,
                 port: 25,
                 auth: {
-                    user: 'stuendtactivityweb@gmail.com',
-                    pass: '!stu1234'
+                    user: process.env.EMAIL,
+                    pass: process.env.PASSWOARD
+                    // user: 'stuendtactivityweb@gmail.com',
+                    // pass: '!stu1234'
                 },
                 tls:{
                     rejectUnauthorized: false,
