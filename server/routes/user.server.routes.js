@@ -2,6 +2,9 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+//require('dotenv').config();
+const nodemailer = require('nodemailer');
+
 const User = require("../models/user");
 //when create an account, post a new account with userID
 const Account = require("../models/account");
@@ -56,6 +59,7 @@ router.post("/register", (req, res, next) => {
 });
 
 router.post("/loginacc", (req, res, next) => {
+
     let fetchedUser;
     User.findOne({ email: req.body.email })
         .then(user => {
@@ -89,6 +93,54 @@ router.post("/loginacc", (req, res, next) => {
                 message: "3Auth failed"
             });
         });
+});
+
+
+router.post("/retrive", (req, res, next) => {
+
+    let fetchedUser;
+    User.findOne({ email: req.body.email })
+        .then(user => {
+            if (!user) {
+                return res.status(401).json({
+                    message: "User not exist"
+                });
+            }
+            fetchedUser = user;
+
+            // Step 1
+
+            let transporter = nodemailer.createTransport({
+                service: 'gmail',
+                secure: false,
+                port: 25,
+                auth: {
+                    user: 'stuendtactivityweb@gmail.com',
+                    pass: '!stu1234'
+                },
+                tls:{
+                    rejectUnauthorized: false,
+                }
+            });
+
+            // Step 2
+            let mailOptions = {
+                from: 'stuendtactivityweb@gmail.com', 
+                to: fetchedUser.email,
+                subject: 'Nodemailer - Test',
+                text: 'Wooohooo it works!!'
+            };
+
+            // Step 3
+            transporter.sendMail(mailOptions, (err, data) => {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log('Email sent!!!');
+                console.log(data);
+            });
+
+      });
 });
 
 module.exports = router;

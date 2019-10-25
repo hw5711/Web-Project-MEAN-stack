@@ -9,9 +9,6 @@ const app = express.Router();
 // var textbooks = require('../controllers/textbook.server.controller');
 
 app.post("/search",function (req, res, next) {
-    // console.log("1:", req.body);
-    // console.log("2:", req.body.title);
-    // console.log("3:", req.body.author);
     if(req.body.isbn != ''){
         textbook.find({isbn: req.body.isbn}, function (err, post) {
             if (err) return next(err);

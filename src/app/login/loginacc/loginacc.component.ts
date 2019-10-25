@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { NgForm } from "@angular/forms";
-
+import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute, ParamMap } from "@angular/router";
 import { LoginService } from "../login.service";
 
 @Component({
@@ -9,8 +10,12 @@ import { LoginService } from "../login.service";
 })
 export class LoginaccComponent {
     isLoading = false;
+    email;
 
-    constructor(public loginService: LoginService) { }
+    constructor(
+        private http: HttpClient,
+        private loginService: LoginService,
+        public route: ActivatedRoute) { }
 
     onLogin(form: NgForm) {
         if (form.invalid) {
@@ -18,5 +23,10 @@ export class LoginaccComponent {
         }
         this.isLoading = true;
         this.loginService.login(form.value.email, form.value.password);
+    }
+
+    retrivePassword(){
+        console.log("entered email: ",this.email); 
+        this.loginService.retrivePassword(this.email);
     }
 }

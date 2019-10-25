@@ -41,6 +41,15 @@ export class LoginService {
             });
     }
 
+    retrivePassword(email: string){
+        let req = {email: email};
+        this.http
+            .post("http://localhost:3000/user/retrive",req)
+            .subscribe(response => {
+                console.log("show detail of response :", response);
+            });
+    }
+
     login(email: string, password: string) {
         const authData: LoginData = { email: email, password: password };
         this.http

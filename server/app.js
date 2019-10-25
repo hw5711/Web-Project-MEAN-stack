@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+//const nodeMailer = require('nodemailer');
 mongoose.Promise = require('bluebird');
 mongoose.set('useFindAndModify', false);
 // const Textbook = require("./models/textbook");
@@ -17,6 +18,8 @@ const searchpeopleRoutes = require("./routes/searchpeople.server.routes");
 const findroommateRoutes = require("./routes/findrm.server.routes");
 
 const app = express();
+//app.set('view engine', 'ejs');
+//app.use(express.static('public'));
 
 
 // mongoose.connect('mongodb://localhost/mean-angular5', { useNewUrlParser: true, useUnifiedTopology: true, promiseLibrary: require('bluebird') })
@@ -36,7 +39,8 @@ mongoose
     // .set('useCreateIndex', true)
     .connect(
         "mongodb+srv://huanwu:ABCD1234@webproject-qhq6u.mongodb.net/test?retryWrites=true&w=majority"
-        , { useUnifiedTopology: true, useNewUrlParser: true  })
+        , {
+            useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
     .then(() => {
         console.log("Connected to database!");
     })
