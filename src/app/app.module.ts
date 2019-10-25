@@ -46,7 +46,7 @@ import { HeaderComponent } from './header/header.component';
     ActivitiesComponent,
     BusComponent,
     FindrmComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,8 +67,7 @@ import { HeaderComponent } from './header/header.component';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    ChartsModule
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent],
   //entryComponents: [Buydialog]
