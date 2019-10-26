@@ -49,15 +49,14 @@ export class ActivitiesComponent implements OnInit {
       });
   }
 
-  searchActivities(){
-    console.log("search start");
+  searchActivities(form: NgForm){
+    let dateRange= {start: form.value.start, end: form.value.end   };
+    console.log(form.value.start,form.value.end);
     this.http
-      .get<{ message: string; activities: Activities[] }>(
-        "http://localhost:3000/activities/search"
-    ).subscribe(postData => {
-      this.activities = postData.activities;
-      console.log("result: ", postData.message);
-    });
+      .post("http://localhost:3000/activities/search", dateRange)
+      .subscribe(res => {
+        //console.log("search reslut:", res);
+      });
   }
 
   goPrev() {

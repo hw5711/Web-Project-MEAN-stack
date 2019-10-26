@@ -5,13 +5,10 @@ period. The student can select the activities that he/she wants to attend. And a
 should be displayed by month.
 </p>
 
-<!-- <div class="example-events">
-    <div *ngFor="let e of events">{{e}}</div>
-</div> -->
 <div>
     <form (submit)="searchActivities(postForm)" #postForm="ngForm">
     <mat-form-field class="example-full-width">
-        <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="From date" name="date">
+        <input matInput name="start" [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="From date" name="date">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
@@ -19,7 +16,7 @@ should be displayed by month.
         <span style="margin-left: 20px;"></span>
 
         <mat-form-field class="example-full-width">
-            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" placeholder="To date">
+            <input matInput name="end" [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" placeholder="To date">
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
@@ -49,7 +46,7 @@ should be displayed by month.
             {{item}}</div>
     </div>
 </div>
-<hr>
+<!-- <hr>
 <p>choose a date to join</p>
 <div ng-controller="TestCtrl">
     <input date-range-picker class="form-control date-picker" type="text" ng-model="datePicker.date" />
@@ -71,4 +68,4 @@ should be displayed by month.
         </button>
     </form>
 </div>
-<hr>
+<hr> -->
