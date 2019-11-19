@@ -1,5 +1,5 @@
-For runing frontend : "ng serve"
-For runing backend: "nodemon server"
+For running frontend : "ng serve"
+For running backend: "nodemon server"
 
 # Project
 
