@@ -1,9 +1,3 @@
-<p>10. Sports activities and Parties
-A student can use the website to find out the sports activities and parties scheduled. The student can enter a time
-period, for example, September 1 2012 to December 31 2012. The website can list all the scheduled activities during this
-period. The student can select the activities that he/she wants to attend. And all the activities chosen by the student
-should be displayed by month.
-</p>
 
 <div>
     <form (submit)="searchActivities(postForm)" #postForm="ngForm">
@@ -14,7 +8,6 @@ should be displayed by month.
     </mat-form-field>
 
         <span style="margin-left: 20px;"></span>
-
         <mat-form-field class="example-full-width">
             <input matInput name="end" [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" placeholder="To date">
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -26,46 +19,22 @@ should be displayed by month.
         type="submit"> Search </button>
         <br>
     </form>
-    
 </div>
 
-<div class="date-wrap" style="margin-left:20px;">
-    <div class="date-head">
-        <a (click)="goPrev()" class="left-btn">&lt;</a>{{dateObject.month}}/{{dateObject.year}}<a class="right-btn"
-            (click)="goNext()">&gt;</a>
-    </div>
-    <div class="date-body">
-        <div class="date-day">日</div>
-        <div class="date-day">一</div>
-        <div class="date-day">二</div>
-        <div class="date-day">三</div>
-        <div class="date-day">四</div>
-        <div class="date-day">五</div>
-        <div class="date-day">六</div>
-        <div *ngFor="let item of dateObject.datesArray" class="date-item" [class.active]="item==dateObject.nowDay">
-            {{item}}</div>
-    </div>
-</div>
-<!-- <hr>
-<p>choose a date to join</p>
-<div ng-controller="TestCtrl">
-    <input date-range-picker class="form-control date-picker" type="text" ng-model="datePicker.date" />
-</div>
-
-<div>
-    <form (submit)="addPosts(postForm)" #postForm="ngForm">
-        <br>
-        <mat-form-field>
-            <input matInput placeholder="Holder" type="text" name="whos" ngModel>
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-            <input matInput placeholder="studentID" type="text" name="ID" ngModel>
-        </mat-form-field>
-        <br>
-        <button mat-raised-button color="accent" type="submit">
-            Add
-        </button>
-    </form>
-</div>
-<hr> -->
+<h1>this area is for create database</h1>
+<form (submit)="createActivity(createForm)" #createForm="ngForm">
+    <mat-form-field>
+        <a>Date:</a>
+        <input matInput type="date" name="date" ngModel></mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
+        <a>Info:</a>
+        <input matInput type="text" name="info" ngModel></mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
+        <a>activity id:</a>
+        <input matInput type="text" name="id" ngModel></mat-form-field>
+    <br>
+    <button mat-raised-button color="accent" type="submit">Save</button>
+    <br>
+</form>

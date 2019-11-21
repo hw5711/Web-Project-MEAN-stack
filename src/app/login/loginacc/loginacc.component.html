@@ -6,11 +6,11 @@
         <mat-form-field>
             <input matInput name="email" [(ngModel)]="email" type="email" placeholder="E-Mail" #emailInput="ngModel" required email>
             <!-- <input matInput name="email" [(ngModel)]="email" type="email"  #emailInput="ngModel" required email> -->
-            <!-- <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error> -->
+            <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
         </mat-form-field>
         <mat-form-field>
             <input type="password" name="password" ngModel matInput placeholder="Password" #passwordInput="ngModel" required>
-            <!-- <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error> -->
+            <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
         </mat-form-field>
         <button mat-raised-button name="login" color="accent" type="submit" >Login</button>
         <br>
