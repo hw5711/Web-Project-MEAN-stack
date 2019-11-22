@@ -16,14 +16,13 @@ app.post("/create", (req, res, next) => {
 });
 
 app.post("/search", (req, res, next) => {
-    console.log(req.body);
-    Activities.find({date: { $gt: req.body.start}, date: { $lt: req.body.end }} , function (err, post) {
+    console.log(req);
+    Activities.find({date: { $gt: req.body.start}, date: { $lt: req.body.end }} , function (err, response) {
     if (err) return next(err);
-        console.log(post);
-        return res.json(post);
+        console.log(response);
+        return res.json(response);
     });
 });
-
 
 app.post("/registed_event", function (req, res, next) {
     registerevent.find({ creator: req.body.creator, date: { $gt: req.body.start }, date: { $lt: req.body.end } }, function (err, post) {

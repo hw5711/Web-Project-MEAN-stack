@@ -1,26 +1,14 @@
 
 <div>
-    <!-- <form> -->
-    <div class="example-full-width">
-        <input matInput [(ngModel)]="sdate" text="date" [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="From date">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </div>
-
-        <span style="margin-left: 20px;"></span>
-        <div class="example-full-width">
-            <input matInput [(ngModel)]="edate"  text="date" [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" placeholder="To date">
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
-        </div>
-        <span style="margin-left: 20px;"></span>
-        <button mat-raised-button
-        color="accent"
-        (click)=searchActivities() > Search </button>
-        <br>
-    <!-- </form> -->
+    <mat-form-field>
+        <a>Start Date:</a>
+        <input matInput type="date" [(ngModel)]="sdate" ></mat-form-field><span style="margin-left: 20px;"></span>
+        <mat-form-field>
+            <a>End Date:</a>
+            <input matInput type="date" [(ngModel)]="edate" ></mat-form-field>
 </div>
-
+<button mat-raised-button color="accent" (click)=searchActivities()> Search </button>
+<br>
 <br>
 <h1>Search Resault:</h1>
 

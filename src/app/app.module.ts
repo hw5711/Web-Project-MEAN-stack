@@ -4,6 +4,8 @@ import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { MatRippleModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import 'rxjs/add/operator/map';
+// import { map } from 'rxjs/operators/map';
 import {
   MatInputModule,
   MatCardModule,
