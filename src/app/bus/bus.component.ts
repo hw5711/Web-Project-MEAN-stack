@@ -85,7 +85,6 @@ export class BusComponent implements OnInit {
     this.http
       .post("http://localhost:3000/bus/buy", paymentInfo)
       .subscribe(response => {
-        // this.router.navigate(["/"]);
         console.log("res is :", response);
       });
 

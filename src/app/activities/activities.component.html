@@ -1,25 +1,46 @@
 
 <div>
-    <form (submit)="searchActivities(postForm)" #postForm="ngForm">
-    <mat-form-field class="example-full-width">
-        <input matInput name="start" [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="From date" name="date">
+    <!-- <form> -->
+    <div class="example-full-width">
+        <input matInput [(ngModel)]="sdate" text="date" [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="From date">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+    </div>
 
         <span style="margin-left: 20px;"></span>
-        <mat-form-field class="example-full-width">
-            <input matInput name="end" [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" placeholder="To date">
+        <div class="example-full-width">
+            <input matInput [(ngModel)]="edate"  text="date" [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" placeholder="To date">
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
-        </mat-form-field>
+        </div>
         <span style="margin-left: 20px;"></span>
         <button mat-raised-button
         color="accent"
-        type="submit"> Search </button>
+        (click)=searchActivities() > Search </button>
         <br>
-    </form>
+    <!-- </form> -->
 </div>
+
+<br>
+<h1>Search Resault:</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th><span style="margin-left: 20px"></span>Date </th>
+            <th><span style="margin-left: 20px"></span>Event Info</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of event">
+            <td>{{ e.date }}</td>
+            <td><span style="margin-left: 20px"></span>{{ e.info }}</td>
+            <span style="margin-left:30px"></span>
+            <mat-checkbox [(ngModel)]="checked">Join</mat-checkbox>
+        </tr>
+    </tbody>
+</table>
+
 
 <h1>this area is for create database</h1>
 <form (submit)="createActivity(createForm)" #createForm="ngForm">
