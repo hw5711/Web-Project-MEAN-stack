@@ -70,23 +70,14 @@ export class ActivitiesComponent implements OnInit {
         var data = [];
         for (var i in res) {
           data.push(res[i]);
-          // var tempdate = res[i].date.setTime(Date.parse('Aug 9, 1995'));
-          let tempdate = new Date(res[i].date);
-          
-          var postdata = {date: new Date(res[i].date)};
-          let newSting = postdata.date.getFullYear;
-          console.log("ffdfd", newSting);
+          let date1 = res[i].date.toString().substring(0,10);
+          var postdate = {date: date1};
           var postinfo = {info: res[i].info};
           var postid = {id: res[i].id};
-          this.showdate.push(postdata.date);
+          this.showdate.push(postdate.date);
           this.showinfo.push(postinfo.info);
           this.showid.push(postid.id);
-
         }
-
-        // console.log("show1: ",this.showdate);
-        // console.log("show2: ",this.showinfo);
-        // console.log("show3: ",this.showid);
       });
     
   }

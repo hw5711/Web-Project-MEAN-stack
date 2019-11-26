@@ -22,10 +22,11 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let e of showdate; let i of showinfo">
+        <tr *ngFor="let e of showdate; let i of showinfo; let id of showid">
             <td>{{ e.date }}</td>
             <td><span style="margin-left: 20px"></span>{{ i.info }}</td>
             <span style="margin-left:30px"></span>
+            <td><span style="margin-left: 20px"></span>{{ id.id }}</td>
             <mat-checkbox [(ngModel)]="checked">Join</mat-checkbox>
         </tr>
     </tbody>

@@ -19,7 +19,7 @@ app.post("/search", (req, res, next) => {
     console.log(req);
     Activities.find({ date: { $gt: req.body.start }, date: { $lt: req.body.end } }, function (err, post) {
     if (err) return next(err);
-        console.log(post);
+        // console.log(post);
         return res.json(post);
     });
 });
