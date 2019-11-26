@@ -17,10 +17,10 @@ app.post("/create", (req, res, next) => {
 
 app.post("/search", (req, res, next) => {
     console.log(req);
-    Activities.find({date: { $gt: req.body.start}, date: { $lt: req.body.end }} , function (err, response) {
+    Activities.find({ date: { $gt: req.body.start }, date: { $lt: req.body.end } }, function (err, post) {
     if (err) return next(err);
-        console.log(response);
-        return res.json(response);
+        console.log(post);
+        return res.json(post);
     });
 });
 

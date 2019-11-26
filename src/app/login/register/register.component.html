@@ -1,15 +1,16 @@
+<div style="margin-left: 20%; margin-top:2em; width:50%;">
 <mat-card>
     <form (submit)="onSignup(signupForm)" #signupForm="ngForm">
         <mat-form-field>
             <input matInput name="email" ngModel  placeholder="E-Mail" #emailInput="ngModel" required>
-            <!-- <input matInput name="email" ngModel  #emailInput="ngModel" required> -->
             <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
         </mat-form-field>
         <mat-form-field>
             <input  matInput name="password" ngModel placeholder="Password" #passwordInput="ngModel" required>
-            <!-- <input  matInput name="password" ngModel #passwordInput="ngModel" required> -->
             <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
         </mat-form-field>
         <button mat-raised-button name="signup" color="accent" type="submit">Signup</button>
     </form>
 </mat-card>
+
+</div>

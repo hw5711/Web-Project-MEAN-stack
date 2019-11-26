@@ -4,11 +4,9 @@
     </span>
     <span class="spacer"></span>
     <ul>
+       
         <li *ngIf="userIsAuthenticated">
             <a mat-button routerLink="/activities" routerLinkActive="mat-accent">Activities</a>
-        </li>
-        <li *ngIf="userIsAuthenticated">
-            <a name ="election" mat-button routerLink="/election" routerLinkActive="mat-accent">Election</a>
         </li>
         <li *ngIf="userIsAuthenticated">
             <a mat-button routerLink="/search" routerLinkActive="mat-accent">Search People</a>
@@ -17,13 +15,16 @@
             <a mat-button routerLink="/roommate" routerLinkActive="mat-accent">Roommate</a>
         </li>
         <li *ngIf="userIsAuthenticated">
-            <a mat-button routerLink="/textbook" routerLinkActive="mat-accent">Textbook</a>
-        </li>
-        <li *ngIf="userIsAuthenticated">
             <a mat-button routerLink="/meal" routerLinkActive="mat-accent">Meal Plan</a>
         </li>
         <li *ngIf="userIsAuthenticated">
+            <a mat-button routerLink="/textbook" routerLinkActive="mat-accent">Textbook</a>
+        </li>
+        <li *ngIf="userIsAuthenticated">
             <a mat-button routerLink="/bus" routerLinkActive="mat-accent">Bus</a>
+        </li>
+        <li *ngIf="userIsAuthenticated">
+            <a name="election" mat-button routerLink="/election" routerLinkActive="mat-accent">Election</a>
         </li>
         <li *ngIf="userIsAuthenticated">
             <a mat-button routerLink="/account" routerLinkActive="mat-accent">Account</a>

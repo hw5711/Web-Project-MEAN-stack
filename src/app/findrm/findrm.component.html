@@ -1,6 +1,6 @@
-<p>The website can help students to find roommates. A student can enter: date to move in, male/female, approximate price,
-etc. The system can search the database and find the closest match for that student.
-</p>
+<div style="margin-left: 10%; margin-top:2em; width:80%;">
+
+
 
 <form (submit)="searchrm(searchForm)" #searchForm="ngForm">
     <mat-form-field>
@@ -21,7 +21,7 @@ etc. The system can search the database and find the closest match for that stud
 </form>
         
         <br>
-        <h1>Search Resault:</h1>
+        <h1 style="font-size: 20px">Search Resault:</h1>
         
         <table class="table">
             <thead>
@@ -47,7 +47,7 @@ etc. The system can search the database and find the closest match for that stud
         </table>
 
 <hr>
-<h1 style="margin-top: 10em">this area is for create database</h1>
+<h1 style="margin-top: 10em; font-size: 20px">this area is for create database</h1>
 
 <form (submit)="createRoommate(createForm)" #createForm="ngForm">
 
@@ -81,3 +81,5 @@ etc. The system can search the database and find the closest match for that stud
     <button mat-raised-button color="accent" type="submit">Save</button>
 
 </form>
+
+</div>

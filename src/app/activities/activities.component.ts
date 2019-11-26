@@ -30,11 +30,11 @@ export class ActivitiesComponent implements OnInit {
   sdate: Date;
   edate: Date;
   
-  showdate: any;
-  showinfo: any;
+  showdate=[];
+  showinfo=[];
+  showid=[];
 
-  dataArray = [];
-  infoArray = [];
+  searchEvent: [];
   
   private year: number;
   private month: number;
@@ -62,15 +62,33 @@ export class ActivitiesComponent implements OnInit {
       start: this.sdate,
       end: this.edate,
     };
+
     console.log(req.start, req.end);
     this.http
       .post("http://localhost:3000/activities/search", req)
       .subscribe(res => {
-        this.dataArray = res['date'];
-        this.infoArray = res['info'];
+        var data = [];
+        for (var i in res) {
+          data.push(res[i]);
+          // var tempdate = res[i].date.setTime(Date.parse('Aug 9, 1995'));
+          let tempdate = new Date(res[i].date);
+          
+          var postdata = {date: new Date(res[i].date)};
+          let newSting = postdata.date.getFullYear;
+          console.log("ffdfd", newSting);
+          var postinfo = {info: res[i].info};
+          var postid = {id: res[i].id};
+          this.showdate.push(postdata.date);
+          this.showinfo.push(postinfo.info);
+          this.showid.push(postid.id);
+
+        }
+
+        // console.log("show1: ",this.showdate);
+        // console.log("show2: ",this.showinfo);
+        // console.log("show3: ",this.showid);
       });
     
-    console.log("fdfddfd: " ,this.dataArray);
   }
 
   createActivity(form: NgForm){

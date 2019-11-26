@@ -1,3 +1,5 @@
+<div style="margin-left: 10%; margin-top:2em; width:80%;">
+
 
 <div>
     <mat-form-field>
@@ -10,27 +12,31 @@
 <button mat-raised-button color="accent" (click)=searchActivities()> Search </button>
 <br>
 <br>
-<h1>Search Resault:</h1>
-
+<h1 style="font-size: 20px">Search Resault:</h1>
+<hr>
 <table class="table">
     <thead>
         <tr>
-            <th><span style="margin-left: 20px"></span>Date </th>
-            <th><span style="margin-left: 20px"></span>Event Info</th>
+            <th><span style="margin-left: 20px; font-size: 20px"></span>Date </th>
+            <th><span style="margin-left: 20px; font-size: 20px"></span>Event Info</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let e of event">
+        <tr *ngFor="let e of showdate; let i of showinfo">
             <td>{{ e.date }}</td>
-            <td><span style="margin-left: 20px"></span>{{ e.info }}</td>
+            <td><span style="margin-left: 20px"></span>{{ i.info }}</td>
             <span style="margin-left:30px"></span>
             <mat-checkbox [(ngModel)]="checked">Join</mat-checkbox>
         </tr>
     </tbody>
 </table>
 
+<br>
+<br>
 
-<h1>this area is for create database</h1>
+<hr style="margin-top:3em">
+
+<h1 style="font-size: 20px">this area is for create database</h1>
 <form (submit)="createActivity(createForm)" #createForm="ngForm">
     <mat-form-field>
         <a>Date:</a>
@@ -47,3 +53,5 @@
     <button mat-raised-button color="accent" type="submit">Save</button>
     <br>
 </form>
+
+</div>
