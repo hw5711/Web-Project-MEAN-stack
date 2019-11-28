@@ -1,7 +1,7 @@
 const express = require("express");
 var mongoose = require('mongoose');
 const Activities = require("../models/activities");
-const registerevent = require("../models/registerevent");
+const Registerevent = require("../models/registerevent");
 
 const app = express.Router();
 
@@ -10,29 +10,41 @@ const app = express.Router();
 app.post("/create", (req, res, next) => {
     Activities.create(req.body, function (err, post) {
         if (err) return next(err);
-        // console.log(post);
         return res.json(post);
     });
 });
 
 app.post("/search", (req, res, next) => {
-    console.log(req);
     Activities.find({ date: { $gt: req.body.start }, date: { $lt: req.body.end } }, function (err, post) {
     if (err) return next(err);
-        // console.log(post);
         return res.json(post);
     });
 });
 
-app.post("/registed_event", function (req, res, next) {
-    registerevent.find({ creator: req.body.creator, date: { $gt: req.body.start }, date: { $lt: req.body.end } }, function (err, post) {
-        if (err) return next(err);
-        return res.json(post);
-    });
+app.post("/join", function (req, res, next) {
+    let eventArr = [];
+    for(var c of req.body.events){
+        let array = {
+            date: c.date,
+            info: c.info,
+            id: c.id,
+        }
+        eventArr.push(array);
+    }
+        let data = {
+            events: eventArr,
+            creator: req.body.creator
+        }
+        Registerevent.create(data, function (err, post) {
+            if (err) return next(err);
+            return res.json(post);
+        });
+   
 });
 
-app.post("/register", (req, res, next) => {
-    Activities.create(req.body, function (err, post) {
+app.post("/reservation", (req, res, next) => {
+    console.log(req.body);
+    Registerevent.find(creator = req.body, function (err, post) {
         if (err) return next(err);
         // console.log(post);
         return res.json(post);

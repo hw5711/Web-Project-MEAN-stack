@@ -12,30 +12,37 @@
 <button mat-raised-button color="accent" (click)=searchActivities()> Search </button>
 <br>
 <br>
-<h1 style="font-size: 20px">Search Resault:</h1>
+<h1 style="font-size: 15px">Search Resault:</h1>
 <hr>
 <table class="table">
-    <thead>
-        <tr>
-            <th><span style="margin-left: 20px; font-size: 20px"></span>Date </th>
-            <th><span style="margin-left: 20px; font-size: 20px"></span>Event Info</th>
-        </tr>
+    <thead style="font-size: 15px; padding-left:-100px">
+            <tr>Date<span style="margin-left: 100px"></span>Event Info<span style="margin-left: 150px"></span>Join</tr>
     </thead>
-    <tbody>
-        <tr *ngFor="let e of showdate; let i of showinfo; let id of showid">
-            <td>{{ e.date }}</td>
-            <td><span style="margin-left: 20px"></span>{{ i.info }}</td>
-            <span style="margin-left:30px"></span>
-            <td><span style="margin-left: 20px"></span>{{ id.id }}</td>
-            <mat-checkbox [(ngModel)]="checked">Join</mat-checkbox>
+    <tbody style="display: flex">
+
+        <div style="width: 100px">
+        <tr *ngFor="let e of showdate">
+            <td>{{ e }}</td>
         </tr>
+        </div>
+        <div style="width: 200px; margin-left:10px">
+        <tr *ngFor="let i of showinfo">
+            <td>{{ i }}</td>
+        </tr>
+        </div>
+        <div style="width: 200px; margin-left:20px">
+            <tr *ngFor="let c of checker">
+                <input
+                type="checkbox"
+                (change)="changeCheckbox($event, c)"
+                 [(ngModel)]="c.join"
+                >
+            </tr>
+        </div>
     </tbody>
 </table>
-
-<br>
-<br>
-
-<hr style="margin-top:3em">
+<button mat-raised-button color="accent" (click)=joinActivities()> Join </button>
+<hr style="margin-top:5em">
 
 <h1 style="font-size: 20px">this area is for create database</h1>
 <form (submit)="createActivity(createForm)" #createForm="ngForm">
