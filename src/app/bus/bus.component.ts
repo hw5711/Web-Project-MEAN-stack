@@ -34,7 +34,7 @@ export class BusComponent implements OnInit {
   state: string;
   zipcode: string;
   phone: string;
-  //choice: string;
+  processed = false;
   creator: string;
 
   choice: string[];
@@ -82,12 +82,13 @@ export class BusComponent implements OnInit {
       amount: this.subtotal,
       creator: this.userId
     }
+    console.log(paymentInfo);
     this.http
       .post("http://localhost:3000/bus/buy", paymentInfo)
       .subscribe(response => {
         console.log("res is :", response);
       });
-
+    this.processed = true;
   }
 
 }

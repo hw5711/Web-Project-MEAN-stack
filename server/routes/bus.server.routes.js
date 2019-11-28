@@ -7,9 +7,10 @@ const app = express.Router();
 
 //use for updating the account info
 app.post("/buy", (req, res, next) => {
+    console.log(req.body);
     Bus.create(req.body, function (err, post) {
         if (err) return next(err);
-        console.log(post);
+        // console.log(post);
         return res.json(post);
     });
 });

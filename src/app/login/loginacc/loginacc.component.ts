@@ -11,6 +11,7 @@ import { LoginService } from "../login.service";
 export class LoginaccComponent {
     isLoading = false;
     email;
+    sent = false;
 
     constructor(
         private http: HttpClient,
@@ -26,7 +27,8 @@ export class LoginaccComponent {
     }
 
     retrivePassword(){
-        console.log("entered email: ",this.email); 
+        // console.log("entered email: ",this.email); 
         this.loginService.retrivePassword(this.email);
+        this.sent=true;
     }
 }

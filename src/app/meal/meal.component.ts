@@ -37,6 +37,7 @@ export class MealComponent implements OnInit {
   phone: string;
   choice: string;
   creator: string;
+  processed = false;
 
   constructor(
     private http: HttpClient,
@@ -71,7 +72,7 @@ export class MealComponent implements OnInit {
         // this.router.navigate(["/"]);
         console.log("res is :", response);
       });
-     
+    this.processed = true;
   }
 
 

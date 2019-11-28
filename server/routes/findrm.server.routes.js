@@ -14,7 +14,7 @@ app.post("", function (req, res, next) {
 app.post("/create", function (req, res, next) {
     findroommate.create(req.body, function (err, post) {
         if (err) return next(err);
-        console.log(post);
+        // console.log(post);
         return res.json(post);
     });
 });

@@ -11,9 +11,7 @@
 
 <button name="submit" mat-raised-button color="accent" style="margin-left: 30px; margin-top: 1em" [disabled]="!select"
     (click)="vote()">Submit</button>
-<!-- <div *ngIf="voteFinished" style="margin-left: 20px"> -->
 <a *ngIf="voteFinished" style="margin-left: 20px">Vote seccessed!</a>
-<!-- </div> -->
 <br>
 <button  name="show" mat-raised-button color="accent" style="margin-left: 30px; margin-top: 1em"
     (click)="show()">Show Result</button>

@@ -19,7 +19,7 @@
     </form>
 
     <br>
-    <h1>Search Resault:</h1>
+    <h1 style="font-size: 15px">Search Resault:</h1>
     
     <table class="table">
         <thead>
@@ -27,7 +27,8 @@
                 <th>Title</th>
                 <th><span style="margin-left: 20px"></span>Author</th>
                 <th><span style="margin-left: 20px"></span>Price</th>
-                <th><span style="margin-left: 20px"></span>Quantity</th>
+                <th><span style="margin-left: 20px"></span>Location</th>
+                <th><span style="margin-left: 20px"></span>Quantity(if you want to buy online)</th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +36,7 @@
                 <td>{{ book.title }}</td>
                 <td><span style="margin-left: 20px"></span>{{ book.author }}</td>
                 <td><span style="margin-left: 20px"></span>{{ book.price }}</td>
+                <td><span style="margin-left: 20px"></span>{{ book.location }}</td>
                 <span style="margin-left: 20px"></span>
                 <input type="number" placeholder="0" [min]=0 [(ngModel)]="quantity" (click)="countSubtotal()">
             </tr>
@@ -42,10 +44,12 @@
     </table>
 <br>
 <br>
-    <a> subtotal :$ {{subtotal}}</a><a>(If the total amount exceeds $200, you will get a discount of 10%.)</a>
+    <a> subtotal :$ {{subtotal}}</a>
+    <span style="margin-left:20px"></span>
+    <a>(If the total amount exceeds $200, you will get a discount of 10%.)</a>
 
 <br>
-<a>Make a payment:</a>
+<a style="margin-top: 1em">Make a payment:</a>
 <div *ngIf="select" style="margin-left: 30px">
     <mat-form-field>
         <a>Name on the card:</a>
@@ -101,12 +105,12 @@
     <br>
     <br>
     <button mat-raised-button color="accent" type="submit" style="margin-left: 30px; margin-top: 1em"
-        [disabled]="!select" (click)="payBook()">Pay</button>
+        [disabled]="!select" (click)="payBook()">Pay</button><a *ngIf=processed style="margin-left:20px">Payment Processed!</a>
 
 </div>
     <br>
 
-    <hr style="margin-top: 10em"> 
+    <hr style="margin-top: 20em"> 
     <P>this area is for creating data(for test)</P>
     <form (submit)="saveBook(postForm)" #postForm="ngForm">
         <mat-form-field>
@@ -120,6 +124,10 @@
         <mat-form-field>
         <a>Title:</a>
         <input matInput type="text"  name="title" ngModel></mat-form-field>
+        <span style="margin-left: 20px"></span>
+        <mat-form-field>
+        <a>Location:</a>
+        <input matInput type="text" name="location" ngModel></mat-form-field>
         <span style="margin-left: 20px"></span>
         <mat-form-field>
         <a>Price:</a>

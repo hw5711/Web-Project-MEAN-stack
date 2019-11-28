@@ -10,13 +10,13 @@
         </mat-form-field>
         <mat-form-field>
             <input type="password" name="password" ngModel matInput placeholder="Password" #passwordInput="ngModel" required>
-            <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
+            <!-- <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error> -->
         </mat-form-field>
         <button mat-raised-button name="login" color="accent" type="submit" >Login</button>
         <br>
         <br>
-        <button mat-raised-button color="accent" name="sent" (click)="retrivePassword()" >Sent</button> <span style="margin-left:5em;"></span>
-        <a>Forgot password?</a>
+        <button mat-raised-button color="accent" name="sent" (click)="retrivePassword()" >Forgot password</button> <span style="margin-left:10px;"></span>
+        <a *ngIf = sent >check your mail!</a>
     </form>
 </mat-card>
 

@@ -15,5 +15,6 @@ export interface BookBuyer {
     author: String,
     price: Number,
     quantity: Number,
+    location: String,
     creator: string,
 }

@@ -33,7 +33,15 @@ app.post("/search",function (req, res, next) {
 app.post("/buy", function (req, res, next) {
     buybooks.create(req.body, function (err, post) {
         if (err) return next(err);
-        console.log(post);
+        // console.log(post);
+        return res.json(post);
+    });
+});
+
+app.post("/create", function (req, res, next) {
+    textbook.create(req.body, function (err, post) {
+        if (err) return next(err);
+        // console.log(post);
         return res.json(post);
     });
 });

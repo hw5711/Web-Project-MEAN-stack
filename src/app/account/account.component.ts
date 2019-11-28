@@ -32,6 +32,8 @@ export class AccountComponent implements OnInit {
   password: string;
   password2: string;
   creator: string;
+  updated = false;
+
   constructor(
     private http: HttpClient,
     private loginService: LoginService,
@@ -62,20 +64,18 @@ export class AccountComponent implements OnInit {
     this.http
       .put("http://localhost:3000/account/" + this._id, account)
       .subscribe(response => {
-        // this.router.navigate(["/"]);
         console.log("res is :" ,response);
       });
+    this.updated = true;
   }
 
   //get default account default
   getAccount() {
-    //pass creator id to server
     console.log("client side:", this.userId);
     this.http
       .get<{ message: string; account: Account }>(
         "http://localhost:3000/account/" + this.userId)
       .subscribe(AccountData => {
-      // console.log(AccountData);
       this._id = AccountData["_id"];
       this.firstName = AccountData["firstName"];
       this.lastName = AccountData["lastName"];
@@ -88,8 +88,6 @@ export class AccountComponent implements OnInit {
       this.password = AccountData["password"];
       this.password2 = AccountData["password2"];
       this.creator = AccountData["creator"];
-      // console.log("id is:", this._id);
-      // console.log("creator is:", this.creator );
     })
   }
 

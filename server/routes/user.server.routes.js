@@ -125,12 +125,14 @@ router.post("/retrive", (req, res, next) => {
                 }
             });
 
+
+
             // Step 2
             let mailOptions = {
                 from: 'stuendtactivityweb@gmail.com', 
                 to: fetchedUser.email,
-                subject: 'Nodemailer - Test',
-                text: 'Wooohooo it works!!'
+                subject: 'Retrive your password - Student Activity Web',
+                text: 'Your password is ' + user.password
             };
 
             // Step 3
@@ -139,7 +141,7 @@ router.post("/retrive", (req, res, next) => {
                     return console.log(err);
                 }
                 console.log('Email sent!!!');
-                console.log(data);
+                // console.log(data);
             });
 
       });

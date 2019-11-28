@@ -22,6 +22,7 @@ textbook: Textbook[] = [];
 title = '';
 author = '';
 isbn = 0;
+location='';
 price: number = 0;
 quantity: number = 0;
 
@@ -41,6 +42,7 @@ creator: string;
 subtotal: number = 0;
 totalAamount: number;
 select = false;
+processed = false;
 
 selectedbook: Textbook[];
 private books: any;
@@ -71,15 +73,13 @@ this.http
   .post("http://localhost:3000/textbook/search", req)
   .subscribe(postData => {
     this.books = postData;
-    //console.log("result: ", postData);
-    // console.log("result: ", postData.toString);
     this.isbn = this.books[0].isbn;
     this.title = this.books[0].title;
     this.author = this.books[0].author;
     this.price = this.books[0].price;
+    this.location = this.books[0].location;
 });
 
-console.log("need to finish this search function , mongoose query")
 }
 
 
@@ -106,15 +106,16 @@ payBook(){
     .post("http://localhost:3000/textbook/buy", paymentInfo)
     .subscribe(response => {
       // this.router.navigate(["/"]);
-      console.log("res is :", response);
+      // console.log("res is :", response);
     });
+  this.processed = true;
 }
 
 
 
 //this function is used for create database
   saveBook(form: NgForm){
-    let req = { isbn: form.value.isbn, title: form.value.title, author: form.value.author, price: form.value.price };
+    let req = { isbn: form.value.isbn, title: form.value.title, author: form.value.author, price: form.value.price, location: form.value.location };
     this.http
     .post<{ message: string, postId: string }>
     ("http://localhost:3000/textbook/create", req)
