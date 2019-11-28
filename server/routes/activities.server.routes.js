@@ -43,10 +43,8 @@ app.post("/join", function (req, res, next) {
 });
 
 app.post("/reservation", (req, res, next) => {
-    console.log(req.body);
-    Registerevent.find(creator = req.body, function (err, post) {
+    Registerevent.find({creator: req.body.creator}, function (err, post) {
         if (err) return next(err);
-        // console.log(post);
         return res.json(post);
     });
 });

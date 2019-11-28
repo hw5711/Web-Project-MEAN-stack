@@ -36,9 +36,13 @@ export class ActivitiesComponent implements OnInit {
   showid=[];
   checker=[];
   joinEvent=[];
-
+  registedEvents= [];
+  registedDate =[];
+  registedInfo=[];
   searchEvent: [];
-  
+  showSearch = false;
+  showReservation = false;
+  joined = false;
   private year: number;
   private month: number;
   private dateObject;
@@ -56,12 +60,17 @@ export class ActivitiesComponent implements OnInit {
   startDate: Date;
   finishDate: Date;
 
-
   ngOnInit() {
     this.userId = this.loginService.getUserId();
   }
 
   searchActivities(){
+    this.joined = false;
+    this.showReservation = false;
+    this.showdate = [];
+    this.showinfo = [];
+    this.checker = [];
+    this.registedEvents = [];
     let req = {
       start: this.sdate,
       end: this.edate,
@@ -85,14 +94,33 @@ export class ActivitiesComponent implements OnInit {
           this.checker.push(postchecker);
         }
       });
+    this.showSearch = true;
+    this.registedEvents = [];
+  }
+
+  reservedEvent() {
+    let req = {
+      creator: this.userId,
+    };
+    this.http
+      .post("http://localhost:3000/activities/reservation", req)
+      .subscribe(response => {
+        for (var i = 0; i < response[0].events.length; i++) {
+          let date2 = response[0].events[i].date.toString().substring(0, 10);
+          let infotemp = { "date": date2, "info": response[0].events[i].info };
+          this.registedEvents.push(infotemp);
+        }
+      });
+    this.showReservation = true;
+    this.showSearch = false;
+    this.showdate = [];
+    this.showinfo =[];
+    this.checker=[];
+    this.joined = false;
   }
 
   changeCheckbox(event, index) {
-    // console.log("test: ", this.checker[index].join);
-    console.log("test1: ", index);
-    
     if(index.join == true){
-     
       for (var i = 0; i < this.joinEvent.length; i++) {
         if (this.joinEvent[i].check == index.check){
             this.found = 1;
@@ -107,7 +135,6 @@ export class ActivitiesComponent implements OnInit {
       for (var i = 0; i < this.joinEvent.length; i++) {
       }
     }
-   console.log("test 2:", this.joinEvent);
   }
 
   joinActivities(){
@@ -118,11 +145,11 @@ export class ActivitiesComponent implements OnInit {
     this.http
       .post("http://localhost:3000/activities/join", req)
       .subscribe(response => {
-        console.log("event post successed: ", response);
+        console.log("event join successed: ", response);
       });
+    this.joined = true;
   }
   
-
   createActivity(form: NgForm){
     let req = {
       date: form.value.date,
@@ -135,5 +162,4 @@ export class ActivitiesComponent implements OnInit {
         console.log("event post successed: ", response);
       });
   }
-
 }

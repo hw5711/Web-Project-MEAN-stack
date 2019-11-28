@@ -1,6 +1,5 @@
 <div style="margin-left: 10%; margin-top:2em; width:80%;">
 
-
 <div>
     <mat-form-field>
         <a>Start Date:</a>
@@ -9,18 +8,19 @@
             <a>End Date:</a>
             <input matInput type="date" [(ngModel)]="edate" ></mat-form-field>
 </div>
-<button mat-raised-button color="accent" (click)=searchActivities()> Search </button>
+<button mat-raised-button color="accent" (click)="searchActivities()"> Search to join</button>
+<button mat-raised-button color="accent" (click)="reservedEvent()" style="margin-left:20px"> Show my event</button>
+
 <br>
+<div *ngIf = showSearch >
+<h1 style="font-size: 15px; margin-top: 1em">Search Resault:</h1>
 <br>
-<h1 style="font-size: 15px">Search Resault:</h1>
-<hr>
 <table class="table">
     <thead style="font-size: 15px; padding-left:-100px">
-            <tr>Date<span style="margin-left: 100px"></span>Event Info<span style="margin-left: 150px"></span>Join</tr>
+            <tr>Date<span style="margin-left: 100px; margin-top:1em"></span>Event Info<span style="margin-left: 130px"></span>Join</tr>
     </thead>
     <tbody style="display: flex">
-
-        <div style="width: 100px">
+        <div style="width: 100px; margin-left:-10px">
         <tr *ngFor="let e of showdate">
             <td>{{ e }}</td>
         </tr>
@@ -41,9 +41,22 @@
         </div>
     </tbody>
 </table>
-<button mat-raised-button color="accent" (click)=joinActivities()> Join </button>
-<hr style="margin-top:5em">
+<button mat-raised-button color="accent" style="margin-left: 400px"(click)=joinActivities()> Join </button>
+<a *ngIf=joined style="margin-left:20px">joined!
+</a>
+</div>
 
+<hr style="margin-top:2em">
+
+<div *ngIf=showReservation>
+    <h1 style="font-size: 15px; margin-top: 2em">Reserved Events:</h1>
+    <a>Date<span style="margin-left: 150px"></span>Event Info</a>
+    <ul style="list-style: none" *ngFor="let i of registedEvents">
+        <li style="margin-left: -40px">{{i.date}}<span style="margin-left: 100px"></span>{{i.info}}</li>
+    </ul>
+</div>
+
+<hr style="margin-top:20em">
 <h1 style="font-size: 20px">this area is for create database</h1>
 <form (submit)="createActivity(createForm)" #createForm="ngForm">
     <mat-form-field>
