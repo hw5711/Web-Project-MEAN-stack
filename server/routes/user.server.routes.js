@@ -23,7 +23,7 @@ router.post("/register", (req, res, next) => {
                 //console.log("after create an account , server result is :", result._id);
 
                 const account = new Account({
-                    firstName: "",
+                    firstName:"",
                     lastName: "",
                     address: "",
                     city: "",

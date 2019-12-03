@@ -10,6 +10,8 @@ import { LoginService } from "../login.service";
 export class RegisterComponent {
    // isLoading = false;
 
+    // firstName:string;
+
     constructor(public authService: LoginService) { }
 
     onSignup(form: NgForm) {
@@ -17,6 +19,7 @@ export class RegisterComponent {
             return;
         }
 
+        // this.authService.createUser(form.value.email, form.value.password, this.firstName);
         this.authService.createUser(form.value.email, form.value.password);
     }
 }

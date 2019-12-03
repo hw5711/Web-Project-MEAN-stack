@@ -1,16 +1,74 @@
 <div style="margin-left: 20%; margin-top:2em; width:50%;">
 <mat-card>
-    <form (submit)="onSignup(signupForm)" #signupForm="ngForm">
-        <mat-form-field>
-            <input matInput name="email" ngModel  placeholder="E-Mail" #emailInput="ngModel" required>
-            <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-            <input  matInput name="password" ngModel placeholder="Password" #passwordInput="ngModel" required>
-            <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
-        </mat-form-field>
-        <button mat-raised-button name="signup" color="accent" type="submit">Signup</button>
-    </form>
-</mat-card>
 
+
+<div>
+    <form action="">
+    <mat-form-field style="width: 40%">
+        <a>First Name:</a>
+        <input matInput type="text" [(ngModel)]="firstName" placeholder="">
+    </mat-form-field >
+    <span style="margin-left: 5px"></span>
+    <mat-form-field style="width: 40%">
+        <a>Last Name:</a>
+        <input matInput type="text" [(ngModel)]="lastName">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <a>Address:</a>
+        <input matInput type="text" [(ngModel)]="address">
+    </mat-form-field>
+    <br>
+    <mat-form-field style="width: 30%">
+        <a>City:</a>
+        <input matInput type="text" [(ngModel)]="city">
+    </mat-form-field>
+    <span style="margin-left:5px"></span>
+    <mat-form-field style="width: 20%">
+        <a>State:</a>
+        <input matInput type="text" [(ngModel)]="state">
+    </mat-form-field>
+    <span style="margin-left: 5px"></span>
+    <mat-form-field style="width: 20%">
+        <a>Zipcode:</a>
+        <input matInput type="text" [(ngModel)]="zipcode">
+    </mat-form-field>
+    <br>
+    <!-- <mat-form-field>
+        <a>email:</a>
+        <input matInput type="text" [(ngModel)]="email">
+    </mat-form-field> -->
+
+    <!-- <mat-form-field>
+        <a>LoginName:</a>
+        <input matInput type="text" [(ngModel)]="loginName" ngModel>
+    </mat-form-field> -->
+    </form>
+
+        <form (submit)="onSignup(signupForm)" #signupForm="ngForm">
+            <mat-form-field>
+                <input matInput name="email" ngModel placeholder="E-Mail" #emailInput="ngModel" required>
+                <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="password" ngModel placeholder="Password" #passwordInput="ngModel" required>
+                <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
+            </mat-form-field>
+            <button mat-raised-button name="signup" color="accent" type="submit">Signup</button>
+        </form>
+    <!-- <mat-form-field>
+        <a>Password:</a>
+        <input matInput type="text" [(ngModel)]="password" ngModel>
+    </mat-form-field>
+    <span style="margin-left: 20px"></span>
+    <mat-form-field>
+        <a>Confirm Password:</a>
+        <input matInput type="text" [(ngModel)]="password2" ngModel>
+    </mat-form-field> -->
+
+    <!-- <button mat-raised-button color="accent" (click)="SaveUpdate()">Update</button><a *ngIf=updated
+       -->
+</div>
+
+</mat-card>
 </div>
