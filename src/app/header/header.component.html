@@ -7,11 +7,11 @@
         <li *ngIf="userIsAuthenticated">
             <a mat-button routerLink="/activities" routerLinkActive="mat-accent">Activities</a>
         </li>
+                <li *ngIf="userIsAuthenticated">
+                    <a mat-button routerLink="/roommate" routerLinkActive="mat-accent">Roommate</a>
+                </li>
         <li *ngIf="userIsAuthenticated">
             <a mat-button routerLink="/search" routerLinkActive="mat-accent">Search People</a>
-        </li>
-        <li *ngIf="userIsAuthenticated">
-            <a mat-button routerLink="/roommate" routerLinkActive="mat-accent">Roommate</a>
         </li>
         <li *ngIf="userIsAuthenticated">
             <a mat-button routerLink="/meal" routerLinkActive="mat-accent">Meal Plan</a>

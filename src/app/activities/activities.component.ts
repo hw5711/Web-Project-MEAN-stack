@@ -99,6 +99,11 @@ export class ActivitiesComponent implements OnInit {
   }
 
   reservedEvent() {
+    this.registedEvents = [];
+    this.showdate = [];
+    this.showinfo = [];
+    this.checker = [];
+
     let req = {
       creator: this.userId,
     };
