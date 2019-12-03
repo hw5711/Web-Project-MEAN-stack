@@ -38,7 +38,9 @@
                 <td><span style="margin-left: 20px"></span>{{ book.price }}</td>
                 <td><span style="margin-left: 20px"></span>{{ book.location }}</td>
                 <span style="margin-left: 20px"></span>
+                <div *ngIf=showQuantity>
                 <input type="number" placeholder="0" [min]=0 [(ngModel)]="quantity" (click)="countSubtotal()">
+                </div>
             </tr>
         </tbody>
     </table>

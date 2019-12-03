@@ -38,6 +38,7 @@ zipcode: string;
 phone: string;
 choice: string;
 creator: string;
+showQuantity=false;
 
 subtotal: number = 0;
 totalAamount: number;
@@ -68,6 +69,13 @@ countSubtotal(){
 }
 
 searchBook(form: NgForm){
+  
+  this.isbn = 0;
+  this.title = '';
+  this.author = '';
+  this.price = 0;
+  this.location = '';
+  this.showQuantity = false;
 let req = { isbn: form.value.isbn, title: form.value.title, author: form.value.author };
 this.http
   .post("http://localhost:3000/textbook/search", req)
@@ -78,6 +86,10 @@ this.http
     this.author = this.books[0].author;
     this.price = this.books[0].price;
     this.location = this.books[0].location;
+    // console.log("fdfd:", this.books[0].location.charAt(0) );
+    if (this.books[0].location.charAt(0) === 'L'){
+      this.showQuantity = true;
+    }
 });
 
 }
