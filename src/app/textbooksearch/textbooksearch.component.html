@@ -3,7 +3,7 @@
 <div>
     <form (submit)="searchBook(searchForm)" #searchForm="ngForm">
         <mat-form-field>
-            <a>ISBM:</a>
+            <a>ISBN:</a>
             <input matInput type="text" name="isbn" ngModel></mat-form-field>
         <span style="margin-left: 20px"></span>
         <mat-form-field>
@@ -19,7 +19,7 @@
     </form>
 
     <br>
-    <h1 style="font-size: 15px">Search Resault:</h1>
+    <h1 style="font-size: 15px">Search Result:</h1>
     
     <table class="table">
         <thead>
@@ -67,7 +67,7 @@
     </mat-form-field>
     <br>
     <mat-form-field>
-        <a>Experation date(mm/yyyy):</a>
+        <a>Expiration date(mm/yyyy):</a>
         <input matInput type="text" [(ngModel)]="exp" required>
     </mat-form-field>
     <span style="margin-left: 20px"></span>
