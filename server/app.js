@@ -1,11 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-//const nodeMailer = require('nodemailer');
+const nodeMailer = require('nodemailer');
 mongoose.Promise = require('bluebird');
 mongoose.set('useFindAndModify', false);
-// const Textbook = require("./models/textbook");
-// const Activities = require("./models/activities");
+const Textbook = require("./models/textbook");
+const Activities = require("./models/activities");
 
 const userRoutes = require("./routes/user.server.routes");
 const activitiesRoutes = require("./routes/activities.server.routes");
@@ -21,12 +21,6 @@ const app = express();
 //app.set('view engine', 'ejs');
 //app.use(express.static('public'));
 
-
-// mongoose.connect('mongodb://localhost/mean-angular5', { useNewUrlParser: true, useUnifiedTopology: true, promiseLibrary: require('bluebird') })
-//     .then(() => console.log('connection succesful'))
-//     .catch((err) => console.error(err));
-
-
 /*** Mongodb Atlas , By selecting the "Free Sandbox" 
  * in the previous video, we're using MongoDB Atlas 
  * (https://www.mongodb.com/cloud/atlas) in this course 
@@ -36,7 +30,6 @@ const app = express();
 /*** IP adress(may changed): 70.114.166.167 */
 
 mongoose
-    // .set('useCreateIndex', true)
     .connect(
         "mongodb+srv://huanwu:ABCD1234@webproject-qhq6u.mongodb.net/test?retryWrites=true&w=majority"
         , {

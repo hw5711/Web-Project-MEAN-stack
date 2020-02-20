@@ -22,8 +22,6 @@ app.put("/:id", (req, res, next) => {
             password2: req.body.password2,
            // creator: req.body.creator,
         });
-        // console.log("req. id : ", req.body.creator);
-        // console.log("req. name : ", req.body.firstName);
 
         Account.updateOne(
             { creator: req.body.creator },

@@ -51,7 +51,6 @@ export class BusComponent implements OnInit {
       this.fourQ * (this.checked4 ? 4 : 0) +
       this.sixQ * (this.checked6 ? 6 : 0) +
       this.fortyQ * (this.checked40 ? 40 : 0);
-
       //this.choice: any[],
   }
 

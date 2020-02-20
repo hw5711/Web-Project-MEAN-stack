@@ -10,7 +10,6 @@ const app = express.Router();
 app.post("/buy",(req, res, next) => {
     Meal.create(req.body, function (err, post) {
         if (err) return next(err);
-        // console.log(post);
     });
 });
 

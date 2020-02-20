@@ -11,7 +11,6 @@ app.post("", function (req, res, next) {
     if (req.body.lastname != '' && req.body.firstname == '' && req.body.department == '') {
         searchpeople.find({ lastname: req.body.lastname }, function (err, post) {
             if (err) return next(err);
-            //console.log(post);
             return res.json(post);
         });
     }
@@ -19,14 +18,12 @@ app.post("", function (req, res, next) {
     if (req.body.lastname == '' && req.body.firstname != '' && req.body.department == '') {
         searchpeople.find({ firstname: req.body.firstname }, function (err, post) {
             if (err) return next(err);
-            //console.log(post);
             return res.json(post);
         });
     }
     if (req.body.lastname == '' && req.body.firstname == '' && req.body.department != '') {
         searchpeople.find({ department: req.body.department }, function (err, post) {
             if (err) return next(err);
-            //console.log(post);
             return res.json(post);
         });
     }
@@ -35,7 +32,6 @@ app.post("", function (req, res, next) {
     if (req.body.lastname != '' && req.body.firstname != '' && req.body.department == '') {
         searchpeople.find({ firstname: req.body.firstname , lastname: req.body.lastname }, function (err, post) {
             if (err) return next(err);
-            //console.log(post);
             return res.json(post);
         });
     }
@@ -65,7 +61,6 @@ app.post("", function (req, res, next) {
 app.post("/create", function (req, res, next) {
     searchpeople.create(req.body, function (err, post) {
         if (err) return next(err);
-        // console.log(post);
         return res.json(post);
     });
 });

@@ -6,7 +6,6 @@ require('dotenv').config();
 const nodemailer = require('nodemailer');
 
 const User = require("../models/user");
-//when create an account, post a new account with userID
 const Account = require("../models/account");
 
 const router = express.Router();
@@ -20,8 +19,6 @@ router.post("/register", (req, res, next) => {
         
         user.save()
             .then(result => {
-                //console.log("after create an account , server result is :", result._id);
-
                 const account = new Account({
                     firstName:"",
                     lastName: "",
@@ -35,7 +32,7 @@ router.post("/register", (req, res, next) => {
                     password2: "",
                     creator: result._id
                 });
-           // console.log("test: ", account);
+
                 account.save()
                     .then(result => {
                         console.log("account created with new user");
@@ -65,7 +62,7 @@ router.post("/loginacc", (req, res, next) => {
         .then(user => {
             if (!user) {
                 return res.status(401).json({
-                    message: "1Auth failed"
+                    message: "Auth failed"
                 });
             }
             fetchedUser = user;
@@ -74,7 +71,7 @@ router.post("/loginacc", (req, res, next) => {
         .then(result => {
             if (!result) {
                 return res.status(401).json({
-                    message: "2Auth failed"
+                    message: "Auth failed"
                 });
             }
             const token = jwt.sign(
@@ -90,7 +87,7 @@ router.post("/loginacc", (req, res, next) => {
         })
         .catch(err => {
             return res.status(401).json({
-                message: "3Auth failed"
+                message: "Auth failed"
             });
         });
 });
@@ -109,7 +106,6 @@ router.post("/retrive", (req, res, next) => {
             fetchedUser = user;
 
             // Step 1
-
             let transporter = nodemailer.createTransport({
                 service: 'gmail',
                 secure: false,
@@ -141,7 +137,6 @@ router.post("/retrive", (req, res, next) => {
                     return console.log(err);
                 }
                 console.log('Email sent!!!');
-                // console.log(data);
             });
 
       });
