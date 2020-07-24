@@ -1,8 +1,4 @@
-For running frontend : "ng serve"
-For running backend: "nodemon server"
-
-# Program-Planner
-Summer Engagement Program Planner
+# Program-Student Portal
 ----------------------------------
 The goal of this project is to create a web app to assist with students needs for colleages such as search books, search roommates, events, election, meal plan and bus plan. This project will focus on critical aspects of full-stack web development such as user access & security, server-side and client-side development, and UI/UX considerations.
 
@@ -19,18 +15,11 @@ Functional Requirements
 
 Non-Functional Requirements
 ---------------------------
-1. Front-end - Angular. 
-2. Server-side - Node.js.
+1. Front-end - Angular. For running frontend : "ng serve"
+2. Server-side - Node.js.For running backend: "nodemon server"
 3. Database - Mongodb Cloud
 
-Unit Testing:
--------------
-1. Unit testing for Angular component using Jest and puppeteer.
-2. The create-react-app already installed Jest and its dependencies.
-3. Install enzyme library using --> npm install --save enzyme react-test-renderer enzyme-adapter-react-16
-4. Install flow-bin for type checking using --> npm install --save-dev flow-bin
-5. Add a "flow" script to your package.json file.
-6. For congif intall --> npm run flow init
+
  
 Client-side - UI:
 ---------------
@@ -38,6 +27,36 @@ Client-side - UI:
 https://drive.google.com/file/d/1bo_COe9wxQdcc7XOWq1E6_ykq19O6Qgb/view?usp=sharing
 
 2. Signup page:
+https://drive.google.com/file/d/19mzbTRTYapjPTCUEsj-9AkXQ9epGMixn/view?usp=sharing
+
+3. Welcome page after login:
+https://drive.google.com/file/d/1r_BDLlRNSJaP8J7JLDicxD8QOHMyqrnt/view?usp=sharing
+
+4. Search roommate page:
+https://drive.google.com/file/d/1En8ZnUxa-WZZ4jAAM_QSR0uKNIQlULvQ/view?usp=sharing
+
+5. Event page:
+https://drive.google.com/file/d/1kF9un7WUDlIE5z2a5zEPfRR0wfO9xBYC/view?usp=sharing
+
+6. Bus page:
+https://drive.google.com/file/d/1IiWZyoCPrf7iRCtTBPFXdwGLt_PimGFJ/view?usp=sharing
+
+7. Election page:
+https://drive.google.com/file/d/1uv8poPQSEq3b7hBpIiJasSSsNpxa-uHU/view?usp=sharing
+
+Database screenshot:
+--------------------
+https://drive.google.com/file/d/1Bn54-HKfEn922gPlO3VrkCeer69RL494/view?usp=sharing
+https://drive.google.com/file/d/1rK5fYbWn2RmiAhcmGXMY8utE1-eJF_b8/view?usp=sharing
+
+Unit Testing:
+-------------
+Unit testing for Angular component using Jest and puppeteer.
+
+Real Time Data Tracking API:
+----------------------------
+Pusher:
+https://drive.google.com/file/d/1rWT_KVQQZtMckV0LjYEnHDhFNEUu9vy0/view?usp=sharing
 
 # Project Functionalities Detail
 
@@ -76,5 +95,6 @@ A student can use the website to find out the sports activities and parties sche
 
 11. Election
 The website runs a poll to test whom users will vote for in a fictitious election of the head of the student’s union. You can store the results of the poll in a database, and draw a bar chart of the results using the image functions. Suppose the three candidates are: John, Mary and Susan.
+
 
 
