@@ -1,15 +1,45 @@
 For running frontend : "ng serve"
 For running backend: "nodemon server"
 
-# Project
+# Program-Planner
+Summer Engagement Program Planner
+----------------------------------
+The goal of this project is to create a web app to assist with students needs for colleages such as search books, search roommates, events, election, meal plan and bus plan. This project will focus on critical aspects of full-stack web development such as user access & security, server-side and client-side development, and UI/UX considerations.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
+Functional Requirements
+------------------------
+1. Users must be authenticated & authorized & retrive authentication to be able to access the website.
+2. A user must be able to edit account setting.
+3. A user must be able to search book base on library database.
+4. A user must be able to search roommates base on the housing database.
+5. A user must be able to search people base on the personnel database.
+6. A user must be able to perform meal and bus plan perchase.
+7. A user must be able to search events and join them.
+8. A user must be able to perform election function for student union.
 
-# Project Detail
+Non-Functional Requirements
+---------------------------
+1. Front-end - Angular. 
+2. Server-side - Node.js.
+3. Database - Mongodb Cloud
 
-Name : Student Activity Website
+Unit Testing:
+-------------
+1. Unit testing for Angular component using Jest and puppeteer.
+2. The create-react-app already installed Jest and its dependencies.
+3. Install enzyme library using --> npm install --save enzyme react-test-renderer enzyme-adapter-react-16
+4. Install flow-bin for type checking using --> npm install --save-dev flow-bin
+5. Add a "flow" script to your package.json file.
+6. For congif intall --> npm run flow init
+ 
+Client-side - UI:
+---------------
+1. Login page:
+https://drive.google.com/file/d/1bo_COe9wxQdcc7XOWq1E6_ykq19O6Qgb/view?usp=sharing
 
-In this project, I'm going to design a dynamic website for the student activities.
+2. Signup page:
+
+# Project Functionalities Detail
 
 1. Login
 A student can login using login name and password. If the login is successful, the student can use the services provided by the website. If the login is not successful, the student will be asked to register.
